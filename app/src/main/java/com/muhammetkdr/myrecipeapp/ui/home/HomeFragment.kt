@@ -1,5 +1,7 @@
 package com.muhammetkdr.myrecipeapp.ui.home
 
+import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.viewModels
 import com.muhammetkdr.myrecipeapp.base.BaseFragment
 import com.muhammetkdr.myrecipeapp.databinding.FragmentHomeBinding
@@ -12,12 +14,5 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
     override val viewModel by viewModels<HomeViewModel>()
 
 
-    override fun onCreateFinished() {
-
-    }
-
-    override fun observeEvents() {
-    
-    }
 
 }
