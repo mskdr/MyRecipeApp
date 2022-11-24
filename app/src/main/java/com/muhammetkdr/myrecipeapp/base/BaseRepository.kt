@@ -10,7 +10,7 @@ import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import java.lang.Exception
 
-class BaseRepository() {
+abstract class BaseRepository() {
     suspend fun <T> safeApiRequest(
         apiRequest: suspend () -> T
     ): Resource<T> {
@@ -36,9 +36,9 @@ private fun errorBodyParser(error: String?): String {
     error?.let {
         return try {
             val errorResponse = Gson().fromJson(error, ErrorResponse::class.java)
-            var errorMessage : String? = null
-            if(errorResponse.meals == null) errorMessage = getAppContext().resources.getString(R.string.meals_null)
-            errorMessage ?: getAppContext().resources.getString(R.string.error_message)
+            val errorMessage = errorResponse.meals // error durumunda api'dan meals null geliyor
+            if(errorMessage == null) return getAppContext().resources.getString(R.string.meals_null)
+            else getAppContext().resources.getString(R.string.error_message)
         } catch (e: Exception) {
             getAppContext().resources.getString(R.string.error_message)
         }

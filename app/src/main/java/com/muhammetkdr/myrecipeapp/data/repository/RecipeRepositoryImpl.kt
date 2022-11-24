@@ -1,6 +1,8 @@
 package com.muhammetkdr.myrecipeapp.data.repository
 
 import androidx.lifecycle.LiveData
+import com.muhammetkdr.myrecipeapp.base.BaseRepository
+import com.muhammetkdr.myrecipeapp.common.utils.Resource
 import com.muhammetkdr.myrecipeapp.domain.repository.RecipeRepository
 import com.muhammetkdr.myrecipeapp.domain.source.local.LocalDataSource
 import com.muhammetkdr.myrecipeapp.domain.source.remote.RemoteDataSource
@@ -11,46 +13,46 @@ import javax.inject.Inject
 class RecipeRepositoryImpl @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource
-) : RecipeRepository {
+) : BaseRepository() , RecipeRepository {
 
-    override suspend fun searchMealWithName(searchWithName: String): MealModel {
-        return remoteDataSource.searchMealWithName(searchWithName)
+    override suspend fun searchMealWithName(searchWithName: String): Resource<MealModel> = safeApiRequest {
+       remoteDataSource.searchMealWithName(searchWithName)
     }
 
-    override suspend fun searchMealWithFirstLetter(searchWithFirstLetter: String): MealModel {
-        return remoteDataSource.searchMealWithFirstLetter(searchWithFirstLetter)
+    override suspend fun searchMealWithFirstLetter(searchWithFirstLetter: String): Resource<MealModel> = safeApiRequest {
+       remoteDataSource.searchMealWithFirstLetter(searchWithFirstLetter)
     }
 
-    override suspend fun lookUpWithId(searchMealId: Int): MealModel {
-        return remoteDataSource.lookUpWithId(searchMealId)
+    override suspend fun lookUpWithId(searchMealId: Int): Resource<MealModel> = safeApiRequest {
+       remoteDataSource.lookUpWithId(searchMealId)
     }
 
-    override suspend fun randomMeal(): MealModel {
-        return remoteDataSource.randomMeal()
+    override suspend fun randomMeal(): Resource<MealModel> = safeApiRequest {
+       remoteDataSource.randomMeal()
     }
 
-    override suspend fun listByType(): MealModel {
-        return remoteDataSource.listByType()
+    override suspend fun listByType(): Resource<MealModel> = safeApiRequest {
+       remoteDataSource.listByType()
     }
 
-    override suspend fun listByCountry(): MealModel {
-        return remoteDataSource.listByCountry()
+    override suspend fun listByCountry(): Resource<MealModel> = safeApiRequest {
+       remoteDataSource.listByCountry()
     }
 
-    override suspend fun allMealList(): MealModel {
-        return remoteDataSource.allMealList()
+    override suspend fun allMealList(): Resource<MealModel> = safeApiRequest {
+       remoteDataSource.allMealList()
     }
 
-    override suspend fun filterByItemName(itemName: String): MealModel {
-        return remoteDataSource.filterByItemName(itemName)
+    override suspend fun filterByItemName(itemName: String): Resource<MealModel> = safeApiRequest {
+       remoteDataSource.filterByItemName(itemName)
     }
 
-    override suspend fun filterByCategory(categoryName: String): MealModel {
-        return remoteDataSource.filterByCategory(categoryName)
+    override suspend fun filterByCategory(categoryName: String): Resource<MealModel> = safeApiRequest {
+       remoteDataSource.filterByCategory(categoryName)
     }
 
-    override suspend fun filterByNation(nationName: String): MealModel {
-        return remoteDataSource.filterByNation(nationName)
+    override suspend fun filterByNation(nationName: String): Resource<MealModel> = safeApiRequest {
+       remoteDataSource.filterByNation(nationName)
     }
 
     override suspend fun insertRecipe(meal: Meal) {

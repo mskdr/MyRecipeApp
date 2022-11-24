@@ -7,7 +7,7 @@ import com.muhammetkdr.myrecipeapp.model.meal.Meal
 @Dao
 interface RecipesDao {
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertRecipe(meal: Meal)
 
     @Delete

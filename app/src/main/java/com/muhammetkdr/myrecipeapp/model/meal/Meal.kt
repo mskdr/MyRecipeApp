@@ -9,20 +9,12 @@ import com.google.gson.annotations.SerializedName
 data class Meal(
     @PrimaryKey(autoGenerate = true)
     val uuid : Int = 0,
-    @SerializedName("dateModified")
-    val dateModified: Any?,
     @SerializedName("idMeal")
     val idMeal: String?,
     @SerializedName("strArea")
     val strArea: String?,
     @SerializedName("strCategory")
     val strCategory: String?,
-    @SerializedName("strCreativeCommonsConfirmed")
-    val strCreativeCommonsConfirmed: Any?,
-    @SerializedName("strDrinkAlternate")
-    val strDrinkAlternate: Any?,
-    @SerializedName("strImageSource")
-    val strImageSource: Any?,
     @SerializedName("strIngredient1")
     val strIngredient1: String?,
     @SerializedName("strIngredient10")
