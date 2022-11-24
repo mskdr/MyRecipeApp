@@ -1,9 +1,14 @@
-package com.muhammetkdr.myrecipeapp.data.model
+package com.muhammetkdr.myrecipeapp.model.meal
 
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "recipes")
 data class Meal(
+    @PrimaryKey(autoGenerate = true)
+    val uuid : Int = 0,
     @SerializedName("dateModified")
     val dateModified: Any?,
     @SerializedName("idMeal")
