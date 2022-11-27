@@ -1,5 +1,6 @@
 package com.muhammetkdr.myrecipeapp.domain.source.remote
 
+import com.muhammetkdr.myrecipeapp.model.category.CategoryModel
 import com.muhammetkdr.myrecipeapp.model.meal.MealModel
 
 interface RemoteDataSource {
@@ -8,11 +9,11 @@ interface RemoteDataSource {
 
     suspend fun searchMealWithFirstLetter(searchWithFirstLetter: String): MealModel
 
-    suspend fun lookUpWithId(searchMealId: Int): MealModel
+    suspend fun findMealById(searchMealId: Int): MealModel
 
     suspend fun randomMeal(): MealModel
 
-//    suspend fun categories() : Categories
+    suspend fun getCategories() : CategoryModel
 
     suspend fun listByType(): MealModel
 

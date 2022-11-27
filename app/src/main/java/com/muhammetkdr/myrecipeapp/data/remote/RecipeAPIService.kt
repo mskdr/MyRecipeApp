@@ -1,7 +1,7 @@
 package com.muhammetkdr.myrecipeapp.data.remote
 
+import com.muhammetkdr.myrecipeapp.model.category.CategoryModel
 import com.muhammetkdr.myrecipeapp.model.meal.MealModel
-import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -18,7 +18,7 @@ interface RecipeAPIService {
     ): MealModel
 
     @GET("api/json/v1/1/lookup.php")
-    suspend fun lookUpWithId(
+    suspend fun findMealById(
         @Query("i") searchMealId: Int
     ): MealModel
 
@@ -26,8 +26,8 @@ interface RecipeAPIService {
     suspend fun randomMeal(
     ): MealModel
 
-//        @GET("api/json/v1/1/categories.php")
-//        suspend fun categories() : Categories
+    @GET("api/json/v1/1/categories.php")
+    suspend fun getCategories(): CategoryModel
 
     @GET("api/json/v1/1/list.php?c=list")
     suspend fun listByType(): MealModel   //strCategory verecek sadece

@@ -9,22 +9,22 @@ import kotlin.coroutines.CoroutineContext
 
 class LocalDataSourceImpl @Inject constructor(
     private val recipesDao: RecipesDao,
-    private val ioDispatcher: CoroutineContext
+    private val DispatcherIO: CoroutineContext
 ) : LocalDataSource {
 
-    override suspend fun insertRecipe(meal: Meal) = withContext(ioDispatcher) {
+    override suspend fun insertRecipe(meal: Meal) = withContext(DispatcherIO) {
         recipesDao.insertRecipe(meal)
     }
 
-    override suspend fun deleteRecipe(meal: Meal) = withContext(ioDispatcher) {
+    override suspend fun deleteRecipe(meal: Meal) = withContext(DispatcherIO) {
         recipesDao.deleteRecipe(meal)
     }
 
-    override suspend fun provideRecipes(): LiveData<List<Meal>> = withContext(ioDispatcher) {
+    override suspend fun provideRecipes(): LiveData<List<Meal>> = withContext(DispatcherIO) {
         recipesDao.provideRecipes()
     }
 
-    override suspend fun isRowExist(idMeal: Int?): Boolean = withContext(ioDispatcher) {
-        recipesDao.isRowExist(idMeal)
+    override suspend fun getFavMealIfExist(idMeal: Int?): Boolean = withContext(DispatcherIO) {
+        recipesDao.getFavMealIfExist(idMeal)
     }
 }

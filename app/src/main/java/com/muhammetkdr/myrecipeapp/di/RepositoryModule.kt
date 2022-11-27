@@ -16,7 +16,7 @@ object RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideProductsRepository(
+    fun provideRecipeRepository(
         remoteDataSource: RemoteDataSource,
         localDataSource: LocalDataSource
     ): RecipeRepository = RecipeRepositoryImpl(remoteDataSource, localDataSource)

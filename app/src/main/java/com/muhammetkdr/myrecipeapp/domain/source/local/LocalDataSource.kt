@@ -11,5 +11,5 @@ interface LocalDataSource {
 
     suspend fun provideRecipes(): LiveData<List<Meal>>
 
-    suspend fun isRowExist(idMeal : Int?) : Boolean
+    suspend fun getFavMealIfExist(idMeal : Int?) : Boolean
 }

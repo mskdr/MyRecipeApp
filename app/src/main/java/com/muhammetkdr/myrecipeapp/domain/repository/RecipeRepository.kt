@@ -1,33 +1,33 @@
 package com.muhammetkdr.myrecipeapp.domain.repository
 
 import androidx.lifecycle.LiveData
-import com.muhammetkdr.myrecipeapp.common.utils.Resource
+import com.muhammetkdr.myrecipeapp.model.category.CategoryModel
 import com.muhammetkdr.myrecipeapp.model.meal.Meal
 import com.muhammetkdr.myrecipeapp.model.meal.MealModel
 
 interface RecipeRepository {
 
-    suspend fun searchMealWithName(searchWithName: String): Resource<MealModel>
+    suspend fun searchMealWithName(searchWithName: String): MealModel
 
-    suspend fun searchMealWithFirstLetter(searchWithFirstLetter: String): Resource<MealModel>
+    suspend fun searchMealWithFirstLetter(searchWithFirstLetter: String): MealModel
 
-    suspend fun lookUpWithId(searchMealId: Int): Resource<MealModel>
+    suspend fun findMealById(searchMealId: Int): MealModel
 
-    suspend fun randomMeal(): Resource<MealModel>
+    suspend fun randomMeal(): MealModel
 
-//    suspend fun categories() : Categories
+    suspend fun getCategories() : CategoryModel
 
-    suspend fun listByType(): Resource<MealModel>
+    suspend fun listByType(): MealModel
 
-    suspend fun listByCountry(): Resource<MealModel>
+    suspend fun listByCountry(): MealModel
 
-    suspend fun allMealList(): Resource<MealModel>
+    suspend fun allMealList(): MealModel
 
-    suspend fun filterByItemName(itemName: String): Resource<MealModel>
+    suspend fun filterByItemName(itemName: String): MealModel
 
-    suspend fun filterByCategory(categoryName: String): Resource<MealModel>
+    suspend fun filterByCategory(categoryName: String): MealModel
 
-    suspend fun filterByNation(nationName: String): Resource<MealModel>
+    suspend fun filterByNation(nationName: String): MealModel
 
     suspend fun insertRecipe(meal: Meal)
 
@@ -35,5 +35,5 @@ interface RecipeRepository {
 
     suspend fun provideRecipes(): LiveData<List<Meal>>
 
-    suspend fun isRowExist(idMeal : Int?) : Boolean
+    suspend fun getFavMealIfExist(idMeal : Int?) : Boolean
 }

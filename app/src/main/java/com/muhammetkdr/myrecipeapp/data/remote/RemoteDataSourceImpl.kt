@@ -1,6 +1,7 @@
 package com.muhammetkdr.myrecipeapp.data.remote
 
 import com.muhammetkdr.myrecipeapp.domain.source.remote.RemoteDataSource
+import com.muhammetkdr.myrecipeapp.model.category.CategoryModel
 import com.muhammetkdr.myrecipeapp.model.meal.MealModel
 import javax.inject.Inject
 
@@ -14,12 +15,16 @@ class RemoteDataSourceImpl @Inject constructor(private val recipeAPIService: Rec
         return recipeAPIService.searchMealWithFirstLetter(searchWithFirstLetter)
     }
 
-    override suspend fun lookUpWithId(searchMealId: Int): MealModel {
-        return recipeAPIService.lookUpWithId(searchMealId)
+    override suspend fun findMealById(searchMealId: Int): MealModel {
+        return recipeAPIService.findMealById(searchMealId)
     }
 
     override suspend fun randomMeal(): MealModel {
         return recipeAPIService.randomMeal()
+    }
+
+    override suspend fun getCategories(): CategoryModel {
+        return recipeAPIService.getCategories()
     }
 
     override suspend fun listByType(): MealModel {
