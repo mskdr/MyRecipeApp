@@ -18,8 +18,17 @@
         android:name="com.muhammetkdr.myrecipeapp.ui.home.HomeFragment"
         android:label="HomeFragment" >
         <action
-            android:id="@+id/action_homeFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            android:id="@+id/action_homeFragment_to_mealsFragment"
+            app:destination="@id/mealsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mealsFragment"
+        android:name="com.muhammetkdr.myrecipeapp.ui.meals.MealsFragment"
+        android:label="fragment_meals"
+        tools:layout="@layout/fragment_meals" >
+        <argument
+            android:name="categoryList"
+            app:argType="com.muhammetkdr.myrecipeapp.model.category.Category" />
     </fragment>
 
 

@@ -7,6 +7,9 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.muhammetkdr.myrecipeapp.base.BaseFragment
+import com.muhammetkdr.myrecipeapp.common.extensions.gone
+import com.muhammetkdr.myrecipeapp.common.extensions.showSnackbar
+import com.muhammetkdr.myrecipeapp.common.extensions.visible
 import com.muhammetkdr.myrecipeapp.common.utils.Resource
 import com.muhammetkdr.myrecipeapp.databinding.FragmentHomeBinding
 import com.muhammetkdr.myrecipeapp.model.category.Category
@@ -17,45 +20,49 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
     FragmentHomeBinding::inflate
 ) {
     override val viewModel by viewModels<HomeViewModel>()
-    private val adapter: HomeCategoryAdapter by lazy { HomeCategoryAdapter(::navigateDetailPage) }
+    private val adapter: HomeCategoryAdapter by lazy { HomeCategoryAdapter(::navigateMealsPage) }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRV()
         initObservers()
-
-
     }
 
-    fun initObservers(){
-        viewModel.categoryList.observe(viewLifecycleOwner){ Resource->
-            when (Resource) {
-                is Resource.Success -> {
-                    Resource.data.let { listOfCategory ->
-                        val category = listOfCategory.categories
-                        adapter.submitList(category)
+    fun initObservers() {
+        viewModel.categoryList.observe(viewLifecycleOwner) { Resource ->
+            with(binding) {
+                when (Resource) {
+                    is Resource.Success -> {
+                        Resource.data.let { listOfCategory ->
+                            val category = listOfCategory.categories
+                            adapter.submitList(category)
+                            homeViewGroup.visible()
+                            homeProgressbar.gone()
+                        }
                     }
-                }
-                is Resource.Error -> {
-                    Toast.makeText(requireContext(),"Error", Toast.LENGTH_LONG)
-                        .show()
-
-                }
-                is Resource.Loading -> {
-
+                    is Resource.Error -> {
+                        homeViewGroup.gone()
+                        homeProgressbar.gone()
+                        requireView().showSnackbar(Resource.throwable.message.toString())
+                    }
+                    is Resource.Loading -> {
+                        homeViewGroup.gone()
+                        homeProgressbar.visible()
+                    }
                 }
             }
         }
-
     }
 
-    private fun setupRV() {
-        binding.rvCategoryHome.adapter = adapter
+    private fun setupRV() = with(binding) {
+        rvCategoryHome.adapter = adapter
+        rvCategoryHome.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
     }
 
-    private fun navigateDetailPage(item: Category) {
-        val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(item)
+    private fun navigateMealsPage(item: Category) {
+        val action = HomeFragmentDirections.actionHomeFragmentToMealsFragment(item)
         findNavController().navigate(action)
     }
 
