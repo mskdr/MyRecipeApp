@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(val getCategoriesUseCase : GetCategoriesUseCase) : ViewModel() {
+class HomeViewModel @Inject constructor(private val getCategoriesUseCase : GetCategoriesUseCase) : ViewModel() {
     
     private val _categoryList : MutableLiveData<Resource<CategoryModel>> = MutableLiveData(Resource.Loading)
     val categoryList: LiveData<Resource<CategoryModel>> get() = _categoryList

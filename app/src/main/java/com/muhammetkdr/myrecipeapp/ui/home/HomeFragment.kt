@@ -3,6 +3,8 @@ package com.muhammetkdr.myrecipeapp.ui.home
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -29,7 +31,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
         initObservers()
     }
 
-    fun initObservers() {
+    private fun initObservers() {
         viewModel.categoryList.observe(viewLifecycleOwner) { Resource ->
             with(binding) {
                 when (Resource) {

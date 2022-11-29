@@ -4,5 +4,6 @@
     <string name="meals_null">Meals Network Response = null</string>
     <string name="error_message">Bilinmeyen bir hata oluştu </string>
     <string name="plot_hint">PLOT HINT</string>
+    <string name="how_to_cook">Recipe</string>
     <string name="categories">Categories</string>
 </resources>

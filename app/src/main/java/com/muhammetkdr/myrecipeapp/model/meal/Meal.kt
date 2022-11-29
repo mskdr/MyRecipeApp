@@ -1,10 +1,13 @@
 package com.muhammetkdr.myrecipeapp.model.meal
 
 
+import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 @Entity(tableName = "recipes")
 data class Meal(
     @PrimaryKey(autoGenerate = true)
@@ -107,4 +110,4 @@ data class Meal(
     val strTags: String?,
     @SerializedName("strYoutube")
     val strYoutube: String?
-)
+) : Parcelable
