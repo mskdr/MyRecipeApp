@@ -13,8 +13,8 @@
             android:name="categoryList"
             app:argType="com.muhammetkdr.myrecipeapp.model.category.Category" />
         <action
-            android:id="@+id/action_mealsFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
+            android:id="@+id/action_mealsFragment_to_detailsViewPagerFragment"
+            app:destination="@id/detailsViewPagerFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
@@ -27,11 +27,43 @@
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
-        android:name="com.muhammetkdr.myrecipeapp.ui.detail.DetailsFragment"
+        android:name="com.muhammetkdr.myrecipeapp.ui.viewpager.detail.DetailsFragment"
         android:label="fragment_details"
-        tools:layout="@layout/fragment_details" >
+        tools:layout="@layout/fragment_details"
+         >
         <argument
             android:name="mealList"
             app:argType="com.muhammetkdr.myrecipeapp.model.meal.Meal" />
     </fragment>
+    <fragment
+        android:id="@+id/ingredientsFragment"
+        android:name="com.muhammetkdr.myrecipeapp.ui.viewpager.ingredients.IngredientsFragment"
+        android:label="IngredientsFragment"
+        tools:layout="@layout/fragment_ingredients"
+        >
+        <argument
+            android:name="meal"
+            app:argType="com.muhammetkdr.myrecipeapp.model.meal.Meal" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsViewPagerFragment"
+        android:name="com.muhammetkdr.myrecipeapp.ui.viewpager.DetailsViewPagerFragment"
+        android:label="DetailsViewPagerFragment"
+        tools:layout="@layout/fragment_detail_view_pager"
+        >
+        <action
+            android:id="@+id/action_detailsViewPagerFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_detailsViewPagerFragment_to_ingredientsFragment"
+            app:destination="@id/ingredientsFragment" />
+        <argument
+            android:name="navigationReferance"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.muhammetkdr.myrecipeapp.ui.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
 </navigation>

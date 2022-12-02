@@ -1,5 +1,6 @@
 package com.muhammetkdr.myrecipeapp.ui.meals
 
+import android.content.SharedPreferences
 import androidx.lifecycle.*
 import com.muhammetkdr.myrecipeapp.common.utils.Resource
 import com.muhammetkdr.myrecipeapp.domain.usecase.list.filter.FilterByCategoryUseCase
@@ -11,7 +12,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MealsViewModel @Inject constructor(
-    savedStateHandle: SavedStateHandle, private val listByCategoryUseCase: FilterByCategoryUseCase
+    savedStateHandle: SavedStateHandle,
+    private val sharedPreferences: SharedPreferences,
+    private val listByCategoryUseCase: FilterByCategoryUseCase
 ) : ViewModel() {
 
     private val mealInCategory: Category? = savedStateHandle.get<Category>("categoryList")
@@ -26,8 +29,14 @@ class MealsViewModel @Inject constructor(
     fun getMealsByCategory() = viewModelScope.launch {
         mealInCategory?.let {
             _mealList.value = Resource.Loading
-            _mealList.value = listByCategoryUseCase(it.strCategory!!)
+            _mealList.value = listByCategoryUseCase(it.strCategory!!)!!
         }
     }
+
+    fun saveIdMealInSharedPref(idMeal : Int){
+        sharedPreferences.edit().putInt("idMeal",idMeal).apply()
+    }
+
+
 
 }

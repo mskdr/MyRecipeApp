@@ -16,5 +16,5 @@ fun View.gone() {
 }
 
 fun View.showSnackbar(msg: String) {
-    Snackbar.make(this, msg, 1500).show()
+    Snackbar.make(this, msg, 10000).show()
 }

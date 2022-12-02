@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.muhammetkdr.myrecipeapp.R
 import com.muhammetkdr.myrecipeapp.base.BaseFragment
 import com.muhammetkdr.myrecipeapp.common.extensions.gone
 import com.muhammetkdr.myrecipeapp.common.extensions.showSnackbar
@@ -57,7 +58,8 @@ class MealsFragment : BaseFragment<FragmentMealsBinding, MealsViewModel>(
     }
 
     private fun navigateDetailPage(item: Meal) {
-        val action = MealsFragmentDirections.actionMealsFragmentToDetailsFragment(item)
+        val action = MealsFragmentDirections.actionMealsFragmentToDetailsViewPagerFragment(R.string.fragment_meals.toString())
+        viewModel.saveIdMealInSharedPref(item.idMeal!!.toInt())
         findNavController().navigate(action)
     }
 

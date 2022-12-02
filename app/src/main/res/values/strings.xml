@@ -6,4 +6,14 @@
     <string name="plot_hint">PLOT HINT</string>
     <string name="how_to_cook">Recipe</string>
     <string name="categories">Categories</string>
+    <string name="fragment_details">DETAILS</string>
+    <string name="fragment_ingredients">INGREDIENTS</string>
+    <string name="fragment_meals">MEALS</string>
+    <string name="fragment_search">SEARCH</string>
+    <string name="someting_bad_happened">Something bad happened..</string>
+    <string name="there_is_no_meal">There is nothing like this..</string>
+    <string name="search">Search a meal..</string>
+
+
+
 </resources>
