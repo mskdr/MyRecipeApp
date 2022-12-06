@@ -5,6 +5,7 @@ import androidx.lifecycle.*
 import com.muhammetkdr.myrecipeapp.common.utils.Resource
 import com.muhammetkdr.myrecipeapp.domain.usecase.list.filter.FilterByCategoryUseCase
 import com.muhammetkdr.myrecipeapp.model.category.Category
+import com.muhammetkdr.myrecipeapp.model.meal.Meal
 import com.muhammetkdr.myrecipeapp.model.meal.MealModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -33,8 +34,9 @@ class MealsViewModel @Inject constructor(
         }
     }
 
-    fun saveIdMealInSharedPref(idMeal : Int){
-        sharedPreferences.edit().putInt("idMeal",idMeal).apply()
+    fun saveInfoMealInSharedPref(meal :Meal ){
+        sharedPreferences.edit().putInt("idMeal",meal.idMeal!!.toInt()).apply()
+//        sharedPreferences.edit().putBoolean("mealFavoriteState",meal.isFavorite).apply()
     }
 
 

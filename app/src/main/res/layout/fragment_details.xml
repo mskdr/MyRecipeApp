@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="meal"
             type="com.muhammetkdr.myrecipeapp.model.meal.Meal" />
@@ -18,36 +17,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-
-
-<!--                <com.skydoves.expandablelayout.ExpandableLayout-->
-<!--                    android:id="@+id/expandableLayout"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="50dp"-->
-<!--                    app:expandable_animation="normal"-->
-<!--                    app:expandable_duration="300"-->
-<!--                    app:expandable_isExpanded="false"-->
-<!--                    app:expandable_parentLayout="@layout/fragment_ingredients"-->
-<!--                    app:expandable_secondLayout="@layout/item_row_ingredients"-->
-<!--                    app:expandable_showSpinner="true"-->
-<!--                    app:expandable_spinner="@drawable/ic_arrow_down"-->
-<!--                    app:expandable_spinner_animate="true"-->
-<!--                    app:expandable_spinner_gravity="end"-->
-<!--                    app:expandable_spinner_margin="14dp"-->
-<!--                    app:expandable_spinner_size="32dp"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintHorizontal_bias="0.0"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintTop_toTopOf="parent" />-->
+                <ImageView
+                    android:id="@+id/img_favorite"
+                    android:layout_width="36dp"
+                    android:layout_height="25dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvDescription"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvDescription"
+                    app:layout_constraintTop_toTopOf="@+id/tvDescription"
+                    app:srcCompat="@drawable/ic_favorite_unselected" />
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/img_meal"
                     setImage="@{meal.strMealThumb}"
                     android:layout_width="250dp"
                     android:layout_height="250dp"
@@ -63,12 +49,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:gravity="center"
                     android:hint="@string/plot_hint"
                     android:text="@{meal.strMeal}"
                     android:textSize="20sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                    app:layout_constraintTop_toBottomOf="@+id/img_meal" />
 
                 <TextView
                     android:id="@+id/tvCategory"
@@ -137,8 +124,8 @@
                     android:id="@+id/detailViewGroup"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:constraint_referenced_ids="imageView,tvNameOfMeal,
-                    tvCategory,tvNation,tvDescription,tvRecipe"
+                    app:constraint_referenced_ids="img_meal,tvNameOfMeal,
+                    tvCategory,tvNation,tvDescription,tvRecipe,img_favorite"
                     >
                 </androidx.constraintlayout.widget.Group>
 

@@ -13,7 +13,7 @@ class SearchMealWithNameUserCase  @Inject constructor(
     suspend operator fun invoke(mealName: String): Resource<MealModel> {
         return try {
             Resource.Loading
-            Resource.Success(recipeRepository.searchMealWithFirstLetter(mealName))
+            Resource.Success(recipeRepository.searchMealWithName(mealName))
         } catch (e: HttpException) {
             Resource.Error(e)
         } catch (e: IOException) {

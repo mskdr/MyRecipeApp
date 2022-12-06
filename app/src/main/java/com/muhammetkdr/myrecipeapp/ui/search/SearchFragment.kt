@@ -5,21 +5,94 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import com.muhammetkdr.myrecipeapp.R
 import com.muhammetkdr.myrecipeapp.base.BaseFragment
+import com.muhammetkdr.myrecipeapp.common.extensions.gone
+import com.muhammetkdr.myrecipeapp.common.extensions.showSnackbar
+import com.muhammetkdr.myrecipeapp.common.extensions.visible
+import com.muhammetkdr.myrecipeapp.common.utils.Resource
 import com.muhammetkdr.myrecipeapp.databinding.FragmentDetailViewPagerBinding
 import com.muhammetkdr.myrecipeapp.databinding.FragmentSearchBinding
+import com.muhammetkdr.myrecipeapp.model.meal.Meal
+import com.muhammetkdr.myrecipeapp.ui.meals.MealsAdapter
+import com.muhammetkdr.myrecipeapp.ui.meals.MealsFragmentDirections
 import com.muhammetkdr.myrecipeapp.ui.viewpager.DetailsViewPagerViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 @AndroidEntryPoint
-class SearchFragment: BaseFragment<FragmentSearchBinding, SearchViewModel>(
+class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>(
     FragmentSearchBinding::inflate
 ) {
     override val viewModel by viewModels<SearchViewModel>()
+    private val mealsAdapter: MealsAdapter by lazy { MealsAdapter(::navigateDetailPage) }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        setupRV()
+        searchMeal()
+        initObservers()
+    }
+
+    private fun searchMeal() {
+        var job: Job? = null
+        binding.searchMealTextField.editText?.addTextChangedListener {
+            job?.cancel()
+            job = lifecycleScope.launch{
+                delay(1000)
+                it?.let {
+                    if (it.toString().isNotEmpty()) {
+                        viewModel.searchMealWithQuery(it.toString())
+                    }
+                }
+            }
+        }
+    }
+
+    private fun initObservers(){
+        viewModel.searchedMealList.observe(viewLifecycleOwner) { Resource ->
+            with(binding) {
+                when (Resource) {
+                    is Resource.Success -> {
+                        Resource.data.let { listOfMeals ->
+                            val meals = listOfMeals.meals
+                            mealsAdapter.submitList(meals)
+                            searchProgressBar.gone()
+                        }
+                    }
+                    is Resource.Error -> {
+                        searchProgressBar.gone()
+                        requireView().showSnackbar(Resource.throwable.message.toString())
+                    }
+                    is Resource.Loading -> {
+                        searchProgressBar.visible()
+                    }
+                }
+            }
+        }
+    }
+
+    private fun setupRV() = with(binding) {
+        rvSearch.adapter = mealsAdapter
+        rvSearch.layoutManager =
+            GridLayoutManager(requireContext(), 2)
+    }
+
+    private fun navigateDetailPage(item: Meal) {
+        val action = SearchFragmentDirections.actionSearchFragmentToDetailsViewPagerFragment()
+        viewModel.saveInfoMealInSharedPref(item)
+        findNavController().navigate(action)
+    }
 
 
 }

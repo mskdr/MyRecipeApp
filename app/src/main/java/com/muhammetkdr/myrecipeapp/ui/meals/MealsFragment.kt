@@ -58,8 +58,8 @@ class MealsFragment : BaseFragment<FragmentMealsBinding, MealsViewModel>(
     }
 
     private fun navigateDetailPage(item: Meal) {
-        val action = MealsFragmentDirections.actionMealsFragmentToDetailsViewPagerFragment(R.string.fragment_meals.toString())
-        viewModel.saveIdMealInSharedPref(item.idMeal!!.toInt())
+        val action = MealsFragmentDirections.actionMealsFragmentToDetailsViewPagerFragment()
+        viewModel.saveInfoMealInSharedPref(item)
         findNavController().navigate(action)
     }
 

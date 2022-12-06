@@ -23,7 +23,7 @@ class HomeViewModel @Inject constructor(private val getCategoriesUseCase : GetCa
 
     fun getCategories() = viewModelScope.launch {
             _categoryList.value = Resource.Loading
-            _categoryList.value = getCategoriesUseCase()
+            _categoryList.value = getCategoriesUseCase()!!
         }
 
 

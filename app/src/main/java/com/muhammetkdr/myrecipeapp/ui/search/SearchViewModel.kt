@@ -6,7 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.muhammetkdr.myrecipeapp.common.utils.Resource
+import com.muhammetkdr.myrecipeapp.domain.usecase.search.SearchMealWithFirstLetterUseCase
 import com.muhammetkdr.myrecipeapp.domain.usecase.search.SearchMealWithNameUserCase
+import com.muhammetkdr.myrecipeapp.model.meal.Meal
 import com.muhammetkdr.myrecipeapp.model.meal.MealModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -22,15 +24,18 @@ class SearchViewModel  @Inject constructor(
     private val _searchedMovieList = MutableLiveData<Resource<MealModel>>()
     val searchedMealList: LiveData<Resource<MealModel>> get() = _searchedMovieList
 
-    fun searchForMeal(searchQuery: String) = viewModelScope.launch(Dispatchers.IO) {
+    fun searchMealWithQuery(searchQuery: String){
         if (searchQuery.isEmpty()) {
-            return@launch
+            return
         }
-        _searchedMovieList.value = Resource.Loading
-        _searchedMovieList.value =  searchMealWithNameUserCase(searchQuery)!!
+        _searchedMovieList.value =  Resource.Loading
+        viewModelScope.launch{
+            _searchedMovieList.value =  searchMealWithNameUserCase(searchQuery)!!
+        }
     }
 
-    fun changeSharedPreferencesValue(mealId: Int) {
-        sharedPreferences.edit().putInt("idMeal", mealId).apply()
+    fun saveInfoMealInSharedPref(meal: Meal) {
+        sharedPreferences.edit().putInt("idMeal",meal.idMeal!!.toInt()).apply()
+//        sharedPreferences.edit().putBoolean("mealFavoriteState",meal.isFavorite).apply()
     }
 }

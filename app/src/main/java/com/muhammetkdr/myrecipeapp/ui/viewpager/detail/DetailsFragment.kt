@@ -2,8 +2,10 @@ package com.muhammetkdr.myrecipeapp.ui.viewpager.detail
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.muhammetkdr.myrecipeapp.R
 import com.muhammetkdr.myrecipeapp.base.BaseFragment
 import com.muhammetkdr.myrecipeapp.common.extensions.gone
 import com.muhammetkdr.myrecipeapp.common.extensions.invisible
@@ -22,12 +24,13 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding, DetailsViewModel>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initObservers()
+        initializeListeners()
+    }
 
-//        binding.tvRecipe.setOnClickListener {
-//            val action =
-//                DetailsFragmentDirections.actionDetailsFragmentToIngredientsFragment(viewModel.mealFromNavArgs!!)
-//            findNavController().navigate(action)
-//        }
+    private fun initializeListeners() = with(binding) {
+        imgFavorite.setOnClickListener {
+            viewModel.setFavoriteState(meal!!)
+        }
     }
 
     private fun initObservers() {
@@ -36,7 +39,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding, DetailsViewModel>(
                 when (Resource) {
                     is Resource.Success -> {
                         Resource.data?.let {
-                            meal = it.meals!![0]  // There is only 1 meal will come in here
+                            meal = it.meals!![0] // There is only 1 meal will come in here
                             detailViewGroup.visible()
                             detailsProgressBar.gone()
                         }
@@ -53,5 +56,16 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding, DetailsViewModel>(
                 }
             }
         }
+
+        viewModel.isFavorite.observe(viewLifecycleOwner) {
+            if (it == true) {
+                binding.imgFavorite.setImageResource(R.drawable.ic_favorite_selected)
+            }else if (it == null) {
+                binding.imgFavorite.setImageResource(R.drawable.ic_favorite_unselected)
+            } else {
+                binding.imgFavorite.setImageResource(R.drawable.ic_favorite_unselected)
+            }
+        }
     }
+
 }
