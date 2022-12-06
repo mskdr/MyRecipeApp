@@ -33,7 +33,7 @@ interface RecipeRepository {
 
     suspend fun deleteRecipe(meal: Meal)
 
-    suspend fun provideRecipes(): LiveData<List<Meal>>
+    suspend fun provideRecipes():  List<Meal>?
 
     suspend fun getFavMealIfExist(idMeal : Int?) : Boolean
 }

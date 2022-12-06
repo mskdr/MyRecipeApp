@@ -25,18 +25,4 @@ class HomeViewModel @Inject constructor(private val getCategoriesUseCase : GetCa
             _categoryList.value = Resource.Loading
             _categoryList.value = getCategoriesUseCase()!!
         }
-
-
-//    fun getProductsByCategory(category: String) {
-//        viewModelScope.launch {
-//            _products.value = Resource.Loading
-//            _products.value = getProductsByCategoryUseCase(category)
-//        }
-//    }
-
-//    private fun addToFavorite(product: Product) {
-//        viewModelScope.launch {
-//            addToFavoritesUseCase(product)
-//        }
-//    }
 }

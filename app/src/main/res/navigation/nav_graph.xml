@@ -59,4 +59,13 @@
             android:id="@+id/action_searchFragment_to_detailsViewPagerFragment"
             app:destination="@id/detailsViewPagerFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.muhammetkdr.myrecipeapp.ui.favorite.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" >
+        <action
+            android:id="@+id/action_favoritesFragment_to_detailsViewPagerFragment"
+            app:destination="@id/detailsViewPagerFragment" />
+    </fragment>
 </navigation>

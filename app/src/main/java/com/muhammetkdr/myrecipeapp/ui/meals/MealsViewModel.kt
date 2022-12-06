@@ -38,7 +38,4 @@ class MealsViewModel @Inject constructor(
         sharedPreferences.edit().putInt("idMeal",meal.idMeal!!.toInt()).apply()
 //        sharedPreferences.edit().putBoolean("mealFavoriteState",meal.isFavorite).apply()
     }
-
-
-
 }

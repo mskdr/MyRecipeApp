@@ -10,7 +10,6 @@ import com.muhammetkdr.myrecipeapp.domain.usecase.search.FindMealByIdUseCase
 import com.muhammetkdr.myrecipeapp.model.meal.Meal
 import com.muhammetkdr.myrecipeapp.model.meal.MealModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

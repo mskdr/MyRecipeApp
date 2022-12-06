@@ -1,7 +1,6 @@
 package com.muhammetkdr.myrecipeapp.domain.usecase
 
 import com.muhammetkdr.myrecipeapp.domain.repository.RecipeRepository
-import com.muhammetkdr.myrecipeapp.model.meal.Meal
 import javax.inject.Inject
 
 class GetFavMealIfExistUseCase @Inject constructor(

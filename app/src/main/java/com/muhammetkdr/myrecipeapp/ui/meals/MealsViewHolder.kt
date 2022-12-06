@@ -1,9 +1,7 @@
 package com.muhammetkdr.myrecipeapp.ui.meals
 
 import com.muhammetkdr.myrecipeapp.base.BaseViewHolder
-import com.muhammetkdr.myrecipeapp.databinding.ItemRowCategoryBinding
 import com.muhammetkdr.myrecipeapp.databinding.ItemRowMealsBinding
-import com.muhammetkdr.myrecipeapp.model.category.Category
 import com.muhammetkdr.myrecipeapp.model.meal.Meal
 
 class MealsViewHolder (

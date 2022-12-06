@@ -2,7 +2,6 @@ package com.muhammetkdr.myrecipeapp.domain.usecase.list
 
 import com.muhammetkdr.myrecipeapp.common.utils.Resource
 import com.muhammetkdr.myrecipeapp.domain.repository.RecipeRepository
-import com.muhammetkdr.myrecipeapp.model.category.CategoryModel
 import com.muhammetkdr.myrecipeapp.model.meal.MealModel
 import retrofit2.HttpException
 import java.io.IOException

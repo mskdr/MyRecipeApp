@@ -14,7 +14,7 @@ interface RecipesDao {
     suspend fun deleteRecipe(meal: Meal)
 
     @Query("SELECT * FROM recipes")
-    fun provideRecipes(): LiveData<List<Meal>>
+    fun provideRecipes(): List<Meal>?
 
     @Query("SELECT EXISTS(SELECT * FROM recipes WHERE idMeal = :idMeal)")
     suspend fun getFavMealIfExist(idMeal: Int?): Boolean

@@ -13,7 +13,11 @@
     <string name="someting_bad_happened">Something bad happened..</string>
     <string name="there_is_no_meal">There is nothing like this..</string>
     <string name="search">Search a meal..</string>
-
+    <string name="img_Meal_view">Meals Image View</string>
+    <string name="img_Favorite_view">Favorite Img View</string>
+    <string name="rv_Category_Img">Rv Category View</string>
+    <string name="rv_Meal_image">Rv Meal View</string>
+    <string name="rv_Ingredients_image">Rv Ingredients View</string>
 
 
 </resources>

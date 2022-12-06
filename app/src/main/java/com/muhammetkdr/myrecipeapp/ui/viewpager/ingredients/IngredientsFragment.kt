@@ -35,7 +35,7 @@ class IngredientsFragment : BaseFragment<FragmentIngredientsBinding, Ingredients
             with(binding) {
                 when (Resource) {
                     is Resource.Success -> {
-                        Resource.data?.let {
+                        Resource.data.let {
                             val ingredients = listOf(
                                 it.meals!![0]?.strIngredient1,
                                 it.meals[0]?.strIngredient2,
@@ -83,8 +83,8 @@ class IngredientsFragment : BaseFragment<FragmentIngredientsBinding, Ingredients
                             ingredients.filterNotNull()
                             measures.filterNotNull()
 
-                            ingredientsListAdapter.DifferForIngredients.submitList(ingredients)
-                            ingredientsListAdapter.DifferForMeasures.submitList(measures)
+                            ingredientsListAdapter.differForIngredients.submitList(ingredients)
+                            ingredientsListAdapter.differForMeasures.submitList(measures)
                             ingredientsProgressbar.gone()
                         }
                     }

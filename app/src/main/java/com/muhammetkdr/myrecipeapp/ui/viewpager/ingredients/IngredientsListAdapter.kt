@@ -5,10 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.RequestManager
 import com.muhammetkdr.myrecipeapp.databinding.ItemRowIngredientsBinding
-import dagger.Binds
-import dagger.Provides
 import javax.inject.Inject
 
 
@@ -25,9 +22,9 @@ class IngredientsListAdapter @Inject constructor() : RecyclerView.Adapter<Ingred
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredientsViewHolder {
-        val ItemBinding =
+        val binding =
             ItemRowIngredientsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return IngredientsViewHolder(ItemBinding)
+        return IngredientsViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: IngredientsViewHolder, position: Int) {
@@ -55,7 +52,7 @@ class IngredientsListAdapter @Inject constructor() : RecyclerView.Adapter<Ingred
         }
     }
 
-    var DifferForIngredients = AsyncListDiffer(this, diffUtilForIngredients)
+    var differForIngredients = AsyncListDiffer(this, diffUtilForIngredients)
 
     private val diffUtilForMeasures = object : DiffUtil.ItemCallback<String>() {
         override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
@@ -66,22 +63,19 @@ class IngredientsListAdapter @Inject constructor() : RecyclerView.Adapter<Ingred
         }
     }
 
-    var DifferForMeasures = AsyncListDiffer(this, diffUtilForMeasures)
+    var differForMeasures = AsyncListDiffer(this, diffUtilForMeasures)
 
     private var ingredients: List<String>
-        get() = DifferForIngredients.currentList
-        set(value) = DifferForIngredients.submitList(value)
+        get() = differForIngredients.currentList
+        set(value) = differForIngredients.submitList(value)
 
     private var measures: List<String>
-        get() = DifferForMeasures.currentList
-        set(value) = DifferForMeasures.submitList(value)
-
-
+        get() = differForMeasures.currentList
+        set(value) = differForMeasures.submitList(value)
 
     private var onItemClickListener: ((String) -> Unit)? = null
 
-    fun setOnItemClickListener(listener: (String) -> Unit) {
-        onItemClickListener = listener
-    }
-
+//    fun setOnItemClickListener(listener: (String) -> Unit) {
+//        onItemClickListener = listener
+//    }
 }

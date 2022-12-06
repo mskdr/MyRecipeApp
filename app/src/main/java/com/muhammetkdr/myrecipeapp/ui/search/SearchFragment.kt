@@ -1,33 +1,24 @@
 package com.muhammetkdr.myrecipeapp.ui.search
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.muhammetkdr.myrecipeapp.R
 import com.muhammetkdr.myrecipeapp.base.BaseFragment
 import com.muhammetkdr.myrecipeapp.common.extensions.gone
 import com.muhammetkdr.myrecipeapp.common.extensions.showSnackbar
 import com.muhammetkdr.myrecipeapp.common.extensions.visible
 import com.muhammetkdr.myrecipeapp.common.utils.Resource
-import com.muhammetkdr.myrecipeapp.databinding.FragmentDetailViewPagerBinding
 import com.muhammetkdr.myrecipeapp.databinding.FragmentSearchBinding
 import com.muhammetkdr.myrecipeapp.model.meal.Meal
 import com.muhammetkdr.myrecipeapp.ui.meals.MealsAdapter
-import com.muhammetkdr.myrecipeapp.ui.meals.MealsFragmentDirections
-import com.muhammetkdr.myrecipeapp.ui.viewpager.DetailsViewPagerViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>(
@@ -93,6 +84,4 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>(
         viewModel.saveInfoMealInSharedPref(item)
         findNavController().navigate(action)
     }
-
-
 }

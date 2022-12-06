@@ -11,7 +11,6 @@ import javax.inject.Inject
 
 class DetailsViewPagerAdapter @Inject constructor(fragment: Fragment) : FragmentStateAdapter(fragment) {
 
-
     private val tabFragmentsCreator: Map<Int, () -> Fragment> = mapOf(
         DETAIL_PAGE_INDEX to { DetailsFragment() },
         INGREDIENTS_PAGE_INDEX to { IngredientsFragment() }

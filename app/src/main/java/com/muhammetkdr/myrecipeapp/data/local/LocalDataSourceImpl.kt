@@ -20,7 +20,7 @@ class LocalDataSourceImpl @Inject constructor(
         recipesDao.deleteRecipe(meal)
     }
 
-    override suspend fun provideRecipes(): LiveData<List<Meal>> = withContext(DispatcherIO) {
+    override suspend fun provideRecipes(): List<Meal>? = withContext(DispatcherIO) {
         recipesDao.provideRecipes()
     }
 

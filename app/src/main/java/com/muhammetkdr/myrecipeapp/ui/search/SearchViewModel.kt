@@ -6,12 +6,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.muhammetkdr.myrecipeapp.common.utils.Resource
-import com.muhammetkdr.myrecipeapp.domain.usecase.search.SearchMealWithFirstLetterUseCase
 import com.muhammetkdr.myrecipeapp.domain.usecase.search.SearchMealWithNameUserCase
 import com.muhammetkdr.myrecipeapp.model.meal.Meal
 import com.muhammetkdr.myrecipeapp.model.meal.MealModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

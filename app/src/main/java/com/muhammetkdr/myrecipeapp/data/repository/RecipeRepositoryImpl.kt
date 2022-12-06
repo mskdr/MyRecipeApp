@@ -62,7 +62,7 @@ class RecipeRepositoryImpl @Inject constructor(
 
     override suspend fun deleteRecipe(meal: Meal) = localDataSource.deleteRecipe(meal)
 
-    override suspend fun provideRecipes(): LiveData<List<Meal>> =  localDataSource.provideRecipes()
+    override suspend fun provideRecipes(): List<Meal>? =  localDataSource.provideRecipes()
 
     override suspend fun getFavMealIfExist(idMeal: Int?) = localDataSource.getFavMealIfExist(idMeal)
 
