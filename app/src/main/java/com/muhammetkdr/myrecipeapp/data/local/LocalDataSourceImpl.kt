@@ -1,6 +1,5 @@
 package com.muhammetkdr.myrecipeapp.data.local
 
-import androidx.lifecycle.LiveData
 import com.muhammetkdr.myrecipeapp.domain.source.local.LocalDataSource
 import com.muhammetkdr.myrecipeapp.model.meal.Meal
 import kotlinx.coroutines.withContext
@@ -20,11 +19,15 @@ class LocalDataSourceImpl @Inject constructor(
         recipesDao.deleteRecipe(meal)
     }
 
-    override suspend fun provideRecipes(): List<Meal>? = withContext(DispatcherIO) {
+    override suspend fun provideRecipes(): List<Meal> = withContext(DispatcherIO) {
         recipesDao.provideRecipes()
     }
 
     override suspend fun getFavMealIfExist(idMeal: Int?): Boolean = withContext(DispatcherIO) {
         recipesDao.getFavMealIfExist(idMeal)
+    }
+
+    override suspend fun deleteFromFavorites(idMeal: Int) = withContext(DispatcherIO) {
+        recipesDao.deleteFromFavorites(idMeal)
     }
 }

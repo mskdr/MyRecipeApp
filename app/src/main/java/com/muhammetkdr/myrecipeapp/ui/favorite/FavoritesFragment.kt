@@ -13,7 +13,6 @@ import com.muhammetkdr.myrecipeapp.common.extensions.visible
 import com.muhammetkdr.myrecipeapp.common.utils.Resource
 import com.muhammetkdr.myrecipeapp.databinding.FragmentFavoritesBinding
 import com.muhammetkdr.myrecipeapp.model.meal.Meal
-import com.muhammetkdr.myrecipeapp.ui.meals.MealsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,7 +20,7 @@ class FavoritesFragment: BaseFragment<FragmentFavoritesBinding, FavoritesViewMod
     FragmentFavoritesBinding::inflate
 ) {
     override val viewModel by viewModels<FavoritesViewModel>()
-    private val mealsAdapter: MealsAdapter by lazy { MealsAdapter(::navigateDetailPage) }
+    private val favoritesAdapter: FavoritesAdapter by lazy { FavoritesAdapter(::navigateDetailPage) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -36,7 +35,7 @@ class FavoritesFragment: BaseFragment<FragmentFavoritesBinding, FavoritesViewMod
                 when (Resource) {
                     is Resource.Success -> {
                         Resource.data.let {
-                            mealsAdapter.submitList(it)
+                            favoritesAdapter.submitList(it)
                             favoritesProgressBar.gone()
                         }
                     }
@@ -53,8 +52,9 @@ class FavoritesFragment: BaseFragment<FragmentFavoritesBinding, FavoritesViewMod
     }
 
     private fun setupRv() = with(binding){
-        rvFavorites.adapter = mealsAdapter
+        rvFavorites.adapter = favoritesAdapter
         rvFavorites.layoutManager =
+//            StaggeredGridLayoutManager(2,RecyclerView.HORIZONTAL)
             GridLayoutManager(requireContext(), 2)
     }
 

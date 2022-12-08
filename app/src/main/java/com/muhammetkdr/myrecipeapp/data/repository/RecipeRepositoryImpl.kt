@@ -1,6 +1,5 @@
 package com.muhammetkdr.myrecipeapp.data.repository
 
-import androidx.lifecycle.LiveData
 import com.muhammetkdr.myrecipeapp.domain.repository.RecipeRepository
 import com.muhammetkdr.myrecipeapp.domain.source.local.LocalDataSource
 import com.muhammetkdr.myrecipeapp.domain.source.remote.RemoteDataSource
@@ -62,8 +61,10 @@ class RecipeRepositoryImpl @Inject constructor(
 
     override suspend fun deleteRecipe(meal: Meal) = localDataSource.deleteRecipe(meal)
 
-    override suspend fun provideRecipes(): List<Meal>? =  localDataSource.provideRecipes()
+    override suspend fun provideRecipes(): List<Meal> =  localDataSource.provideRecipes()
 
     override suspend fun getFavMealIfExist(idMeal: Int?) = localDataSource.getFavMealIfExist(idMeal)
+
+    override suspend fun deleteFromFavorites(idMeal: Int) = localDataSource.deleteFromFavorites(idMeal)
 
 }

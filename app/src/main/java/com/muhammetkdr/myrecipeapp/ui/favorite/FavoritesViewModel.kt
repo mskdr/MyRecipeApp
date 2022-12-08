@@ -25,7 +25,7 @@ class FavoritesViewModel @Inject constructor(
         getFavoriteRecipes()
     }
 
-    private fun getFavoriteRecipes() = viewModelScope.launch {
+    private fun getFavoriteRecipes() = viewModelScope.launch{
             _favoriteList.value = provideRecipeUseCase()!!
     }
 

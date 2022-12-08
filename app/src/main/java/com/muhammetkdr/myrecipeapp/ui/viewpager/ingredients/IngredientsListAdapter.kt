@@ -73,7 +73,7 @@ class IngredientsListAdapter @Inject constructor() : RecyclerView.Adapter<Ingred
         get() = differForMeasures.currentList
         set(value) = differForMeasures.submitList(value)
 
-    private var onItemClickListener: ((String) -> Unit)? = null
+    var onItemClickListener: ((String) -> Unit)? = null
 
 //    fun setOnItemClickListener(listener: (String) -> Unit) {
 //        onItemClickListener = listener

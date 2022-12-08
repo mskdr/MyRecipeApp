@@ -1,6 +1,5 @@
 package com.muhammetkdr.myrecipeapp.domain.repository
 
-import androidx.lifecycle.LiveData
 import com.muhammetkdr.myrecipeapp.model.category.CategoryModel
 import com.muhammetkdr.myrecipeapp.model.meal.Meal
 import com.muhammetkdr.myrecipeapp.model.meal.MealModel
@@ -33,7 +32,9 @@ interface RecipeRepository {
 
     suspend fun deleteRecipe(meal: Meal)
 
-    suspend fun provideRecipes():  List<Meal>?
+    suspend fun provideRecipes(): List<Meal>
 
     suspend fun getFavMealIfExist(idMeal : Int?) : Boolean
+
+    suspend fun deleteFromFavorites(idMeal: Int)
 }

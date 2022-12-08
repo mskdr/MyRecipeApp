@@ -36,7 +36,10 @@ class IngredientsFragment : BaseFragment<FragmentIngredientsBinding, Ingredients
                 when (Resource) {
                     is Resource.Success -> {
                         Resource.data.let {
-                            val ingredients = listOf(
+
+                    //There wasn't an api request that i can get ingredients and measures as a list
+                    // therefore i had to do it like this
+                            val ingredients = listOfNotNull(
                                 it.meals!![0]?.strIngredient1,
                                 it.meals[0]?.strIngredient2,
                                 it.meals[0]?.strIngredient3,
@@ -56,9 +59,10 @@ class IngredientsFragment : BaseFragment<FragmentIngredientsBinding, Ingredients
                                 it.meals[0]?.strIngredient17,
                                 it.meals[0]?.strIngredient18,
                                 it.meals[0]?.strIngredient19,
-                                it.meals[0]?.strIngredient20)
+                                it.meals[0]?.strIngredient20
+                            )
 
-                            val measures = listOf(
+                            val measures = listOfNotNull(
                                 it.meals[0]?.strMeasure1,
                                 it.meals[0]?.strMeasure2,
                                 it.meals[0]?.strMeasure3,
@@ -78,10 +82,8 @@ class IngredientsFragment : BaseFragment<FragmentIngredientsBinding, Ingredients
                                 it.meals[0]?.strMeasure17,
                                 it.meals[0]?.strMeasure18,
                                 it.meals[0]?.strMeasure19,
-                                it.meals[0]?.strMeasure20)
-
-                            ingredients.filterNotNull()
-                            measures.filterNotNull()
+                                it.meals[0]?.strMeasure20
+                            )
 
                             ingredientsListAdapter.differForIngredients.submitList(ingredients)
                             ingredientsListAdapter.differForMeasures.submitList(measures)

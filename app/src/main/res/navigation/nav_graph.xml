@@ -20,10 +20,13 @@
         android:id="@+id/homeFragment"
         android:name="com.muhammetkdr.myrecipeapp.ui.home.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home">
+        tools:layout="@layout/fragment_home"
+        >
         <action
             android:id="@+id/action_homeFragment_to_mealsFragment"
-            app:destination="@id/mealsFragment" />
+            app:destination="@id/mealsFragment"
+
+            />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
@@ -63,9 +66,15 @@
         android:id="@+id/favoritesFragment"
         android:name="com.muhammetkdr.myrecipeapp.ui.favorite.FavoritesFragment"
         android:label="fragment_favorites"
-        tools:layout="@layout/fragment_favorites" >
+        tools:layout="@layout/fragment_favorites"
+        app:popUpTo="@+id/favoritesFragment"
+        app:popUpToInclusive="false"
+        >
         <action
             android:id="@+id/action_favoritesFragment_to_detailsViewPagerFragment"
-            app:destination="@id/detailsViewPagerFragment" />
+            app:destination="@id/detailsViewPagerFragment"
+            app:popUpTo="@+id/favoritesFragment"
+            app:popUpToInclusive="false"
+            />
     </fragment>
 </navigation>

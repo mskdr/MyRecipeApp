@@ -1,6 +1,5 @@
 package com.muhammetkdr.myrecipeapp.data.local
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.muhammetkdr.myrecipeapp.model.meal.Meal
 
@@ -14,9 +13,12 @@ interface RecipesDao {
     suspend fun deleteRecipe(meal: Meal)
 
     @Query("SELECT * FROM recipes")
-    fun provideRecipes(): List<Meal>?
+    fun provideRecipes(): List<Meal>
 
     @Query("SELECT EXISTS(SELECT * FROM recipes WHERE idMeal = :idMeal)")
     suspend fun getFavMealIfExist(idMeal: Int?): Boolean
+
+    @Query("DELETE FROM recipes WHERE idMeal = :idMeal")
+    suspend fun deleteFromFavorites(idMeal: Int)
 
 }

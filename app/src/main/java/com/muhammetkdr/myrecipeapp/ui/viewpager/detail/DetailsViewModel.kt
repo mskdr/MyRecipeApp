@@ -3,6 +3,7 @@ package com.muhammetkdr.myrecipeapp.ui.viewpager.detail
 import android.content.SharedPreferences
 import androidx.lifecycle.*
 import com.muhammetkdr.myrecipeapp.common.utils.Resource
+import com.muhammetkdr.myrecipeapp.domain.usecase.DeleteFromFavoritesUserCase
 import com.muhammetkdr.myrecipeapp.domain.usecase.DeleteRecipeUseCase
 import com.muhammetkdr.myrecipeapp.domain.usecase.GetFavMealIfExistUseCase
 import com.muhammetkdr.myrecipeapp.domain.usecase.InsertRecipeUseCase
@@ -17,7 +18,7 @@ import javax.inject.Inject
 class DetailsViewModel @Inject constructor(
     sharedPref: SharedPreferences,
     private val insertRecipeUseCase: InsertRecipeUseCase,
-    private val deleteRecipeUseCase: DeleteRecipeUseCase,
+    private val deleteFromFavoritesUserCase: DeleteFromFavoritesUserCase,
     private val findMealByIdUseCase: FindMealByIdUseCase,
     private val getFavMealIfExistUseCase: GetFavMealIfExistUseCase
 ) : ViewModel() {
@@ -36,12 +37,20 @@ class DetailsViewModel @Inject constructor(
         getFavMealIfExist(idMeal)
     }
 
-    fun setFavoriteState(meal: Meal) = viewModelScope.launch{
+    private fun deletefromFavorite(id:Int) = viewModelScope.launch {
+        deleteFromFavoritesUserCase(id)
+    }
+
+    private fun insertFav(meal: Meal) = viewModelScope.launch {
+        insertRecipeUseCase(meal)
+    }
+
+    fun setFavoriteState(meal: Meal){
             if (_isFavorite.value == true) {
-                deleteRecipeUseCase(meal)
+                deletefromFavorite(meal.idMeal!!.toInt())
                 _isFavorite.value = false
             } else {
-                insertRecipeUseCase(meal)
+                insertFav(meal)
                 _isFavorite.value = true
             }
     }
