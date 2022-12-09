@@ -24,6 +24,6 @@
 
 ## Uygulama içerisinden bazı görseller
 
-<img src="https://user-images.githubusercontent.com/71526845/206716348-86832158-d8a7-42ee-a9f6-9dc9b1dd1977.jpeg" width="250">,<img src="https://user-images.githubusercontent.com/71526845/206716439-98a07657-0ae1-41a6-9f89-e8359faa9f3e.jpeg" width="250">,<img src="https://user-images.githubusercontent.com/71526845/206716483-f2d0cb07-a376-424c-8486-0a3589d8f4e9.jpeg" width="250">,<img src="https://user-images.githubusercontent.com/71526845/206716518-4e47c256-046f-4e47-b64d-70518144ed27.jpeg" width="250">,<img src="https://user-images.githubusercontent.com/71526845/206716582-9ddcba68-466b-4601-bc83-c31a6637f1b3.jpeg" width="250">,<img src="https://user-images.githubusercontent.com/71526845/206716606-db980141-0c39-4dd9-ba44-6bc8224694dc.jpeg" width="250">
+<img src="https://user-images.githubusercontent.com/71526845/206716348-86832158-d8a7-42ee-a9f6-9dc9b1dd1977.jpeg" width="250">,<img src="https://user-images.githubusercontent.com/71526845/206716439-98a07657-0ae1-41a6-9f89-e8359faa9f3e.jpeg" width="250">,<img src="https://user-images.githubusercontent.com/71526845/206716483-f2d0cb07-a376-424c-8486-0a3589d8f4e9.jpeg" width="250">,<img src="https://user-images.githubusercontent.com/71526845/206716518-4e47c256-046f-4e47-b64d-70518144ed27.jpeg" width="250">,<img src="https://user-images.githubusercontent.com/71526845/206716582-9ddcba68-466b-4601-bc83-c31a6637f1b3.jpeg" width="250">,<img src="https://user-images.githubusercontent.com/71526845/206718969-a4398284-ccdc-488e-8eea-40e369b1f3ef.jpg" width="250">
 
 
