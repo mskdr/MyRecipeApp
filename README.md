@@ -9,6 +9,7 @@
 <li><a href="https://developer.android.com/topic/libraries/architecture/livedata">LiveData</a></li>
 <li><a href="https://developer.android.com/topic/libraries/data-binding">Data Binding</a></li>
 <li><a href="https://developer.android.com/topic/libraries/view-binding">View Binding</a></li>
+<li><a href="https://developer.android.com/reference/androidx/security/crypto/EncryptedSharedPreferences">Encrypted Shared Preferences </a></li>
 <li><a href="https://developer.android.com/training/dependency-injection/hilt-android">Hilt</a></li>
 <li><a href="https://developer.android.com/kotlin/coroutines">Coroutines</a></li>
 <li><a href="https://square.github.io/retrofit/">Retrofit</a></li>
