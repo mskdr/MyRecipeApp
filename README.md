@@ -22,4 +22,6 @@
 
 ![final-architecture](https://user-images.githubusercontent.com/71526845/206714560-fd57fe48-7d35-4434-9beb-ffd6ca396cfb.png)
 
+## Uygulama içerisinden bazı görseller
+
 
