@@ -5,7 +5,6 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.muhammetkdr.myrecipeapp.R
 import com.muhammetkdr.myrecipeapp.base.BaseFragment
 import com.muhammetkdr.myrecipeapp.common.extensions.gone
 import com.muhammetkdr.myrecipeapp.common.extensions.showSnackbar

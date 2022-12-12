@@ -21,7 +21,7 @@ class HomeViewModel @Inject constructor(private val getCategoriesUseCase : GetCa
         getCategories()
     }
 
-    fun getCategories() = viewModelScope.launch {
+    private fun getCategories() = viewModelScope.launch {
             _categoryList.value = Resource.Loading
             _categoryList.value = getCategoriesUseCase()!!
         }

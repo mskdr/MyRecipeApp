@@ -27,7 +27,7 @@ class MealsViewModel @Inject constructor(
         getMealsByCategory()
     }
 
-    fun getMealsByCategory() = viewModelScope.launch {
+    private fun getMealsByCategory() = viewModelScope.launch {
         mealInCategory?.let {
             _mealList.value = Resource.Loading
             _mealList.value = listByCategoryUseCase(it.strCategory!!)!!

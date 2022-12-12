@@ -4,7 +4,6 @@ import android.content.SharedPreferences
 import androidx.lifecycle.*
 import com.muhammetkdr.myrecipeapp.common.utils.Resource
 import com.muhammetkdr.myrecipeapp.domain.usecase.DeleteFromFavoritesUserCase
-import com.muhammetkdr.myrecipeapp.domain.usecase.DeleteRecipeUseCase
 import com.muhammetkdr.myrecipeapp.domain.usecase.GetFavMealIfExistUseCase
 import com.muhammetkdr.myrecipeapp.domain.usecase.InsertRecipeUseCase
 import com.muhammetkdr.myrecipeapp.domain.usecase.search.FindMealByIdUseCase

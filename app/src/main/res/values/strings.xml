@@ -18,6 +18,7 @@
     <string name="rv_Category_Img">Rv Category View</string>
     <string name="rv_Meal_image">Rv Meal View</string>
     <string name="rv_Ingredients_image">Rv Ingredients View</string>
+    <string name="Deleted_favorite">Delete from favorites list successfully</string>
 
 
 </resources>
