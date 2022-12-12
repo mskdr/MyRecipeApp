@@ -30,30 +30,30 @@ interface RecipeAPIService {
     suspend fun getCategories(): CategoryModel
 
     @GET("api/json/v1/1/list.php?c=list")
-    suspend fun listByType(): MealModel   //strCategory verecek sadece
+    suspend fun listByType(): MealModel
 
     @GET("api/json/v1/1/list.php?a=list")
-    suspend fun listByCountry(): MealModel //strArea verecek sadece
+    suspend fun listByCountry(): MealModel
 
     @GET("api/json/v1/1/list.php?i=list")
-    suspend fun allMealList(): MealModel //idIngredient, strIngredient , strDescription , strType- nullable-all list
+    suspend fun allMealList(): MealModel
 
     @GET("api/json/v1/1/filter.php")
     suspend fun filterByItemName(
         @Query("i")
-        itemName: String  //strMeal strMealThumb idMeal
+        itemName: String
     ): MealModel
 
     @GET("api/json/v1/1/filter.php")
     suspend fun filterByCategory(
         @Query("c")
-        categoryName: String //strMeal strMealThumb idMeal
+        categoryName: String
     ): MealModel
 
     @GET("api/json/v1/1/filter.php")
     suspend fun filterByNation(
         @Query("a")
-        nationName: String  //strMeal strMealThumb idMeal
+        nationName: String
     ): MealModel
 
 }
