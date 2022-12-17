@@ -21,15 +21,12 @@ class FavoritesViewModel @Inject constructor(
     private val _favoriteList = MutableLiveData<Resource<List<Meal>>>()
     val favoriteList: LiveData<Resource<List<Meal>>> = _favoriteList
 
-    init {
-        getFavoriteRecipes()
-    }
-
-    private fun getFavoriteRecipes() = viewModelScope.launch{
+    fun getFavoriteRecipes() = viewModelScope.launch{
             _favoriteList.value = provideRecipeUseCase()!!
     }
 
     fun saveInfoMealInSharedPref(meal: Meal) {
         sharedPreferences.edit().putInt("idMeal", meal.idMeal!!.toInt()).apply()
     }
+
 }

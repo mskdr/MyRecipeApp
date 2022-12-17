@@ -24,9 +24,13 @@ class FavoritesFragment: BaseFragment<FragmentFavoritesBinding, FavoritesViewMod
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupRv()
         initObservers()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getFavoriteRecipes()
     }
 
     private fun initObservers(){
