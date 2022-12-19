@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         navHostFragment.navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.homeFragment, R.id.searchFragment, R.id.favoritesFragment -> {
+                R.id.homeFragment, R.id.searchFragment, R.id.favoritesFragment,R.id.mealsFragment -> {
                     binding.bottomNavigationView.visible()
                 }
                 else -> {

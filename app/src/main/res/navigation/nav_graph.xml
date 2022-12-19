@@ -14,7 +14,11 @@
             app:argType="com.muhammetkdr.myrecipeapp.model.category.Category" />
         <action
             android:id="@+id/action_mealsFragment_to_detailsViewPagerFragment"
-            app:destination="@id/detailsViewPagerFragment" />
+            app:destination="@id/detailsViewPagerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
@@ -25,7 +29,10 @@
         <action
             android:id="@+id/action_homeFragment_to_mealsFragment"
             app:destination="@id/mealsFragment"
-
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             />
     </fragment>
     <fragment
@@ -48,10 +55,19 @@
         >
         <action
             android:id="@+id/action_detailsViewPagerFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
         <action
             android:id="@+id/action_detailsViewPagerFragment_to_ingredientsFragment"
-            app:destination="@id/ingredientsFragment" />
+            app:destination="@id/ingredientsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -60,7 +76,11 @@
         tools:layout="@layout/fragment_search" >
         <action
             android:id="@+id/action_searchFragment_to_detailsViewPagerFragment"
-            app:destination="@id/detailsViewPagerFragment" />
+            app:destination="@id/detailsViewPagerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
@@ -75,6 +95,10 @@
             app:destination="@id/detailsViewPagerFragment"
             app:popUpTo="@+id/favoritesFragment"
             app:popUpToInclusive="false"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             />
     </fragment>
 </navigation>
