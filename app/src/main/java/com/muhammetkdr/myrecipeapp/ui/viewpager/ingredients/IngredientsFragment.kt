@@ -1,7 +1,6 @@
 package com.muhammetkdr.myrecipeapp.ui.viewpager.ingredients
 
 
-
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -36,10 +35,9 @@ class IngredientsFragment : BaseFragment<FragmentIngredientsBinding, Ingredients
                 when (Resource) {
                     is Resource.Success -> {
                         Resource.data.let {
-
-                    //There wasn't an api request that i can get ingredients and measures as a list
-                    // therefore i had to do it like this
-                            val ingredients = listOfNotNull(
+                            //There wasn't an api request that i can get ingredients and measures as a list
+                            // therefore i had to do it like this
+                            val ingredients = listOf(
                                 it.meals!![0]?.strIngredient1,
                                 it.meals[0]?.strIngredient2,
                                 it.meals[0]?.strIngredient3,
@@ -61,8 +59,7 @@ class IngredientsFragment : BaseFragment<FragmentIngredientsBinding, Ingredients
                                 it.meals[0]?.strIngredient19,
                                 it.meals[0]?.strIngredient20
                             )
-
-                            val measures = listOfNotNull(
+                            val measures = listOf(
                                 it.meals[0]?.strMeasure1,
                                 it.meals[0]?.strMeasure2,
                                 it.meals[0]?.strMeasure3,
@@ -85,8 +82,12 @@ class IngredientsFragment : BaseFragment<FragmentIngredientsBinding, Ingredients
                                 it.meals[0]?.strMeasure20
                             )
 
-                            ingredientsListAdapter.differForIngredients.submitList(ingredients)
-                            ingredientsListAdapter.differForMeasures.submitList(measures)
+                            viewModel.removeNullIngredients(ingredients)
+                            viewModel.removeNullMeasures(measures)
+
+                            ingredientsListAdapter.differForIngredients.submitList(viewModel.ingredientList)
+                            ingredientsListAdapter.differForMeasures.submitList(viewModel.measureList)
+
                             ingredientsProgressbar.gone()
                         }
                     }
@@ -102,10 +103,8 @@ class IngredientsFragment : BaseFragment<FragmentIngredientsBinding, Ingredients
         }
     }
 
-    private fun setupRV() {
-        with(binding) {
+    private fun setupRV() =with(binding) {
             rvIngredients.adapter = ingredientsListAdapter
             rvIngredients.layoutManager = LinearLayoutManager(requireContext())
         }
-    }
 }

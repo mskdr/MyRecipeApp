@@ -20,14 +20,40 @@ class IngredientsViewModel @Inject constructor(
     private val _meal: MutableLiveData<Resource<MealModel>> = MutableLiveData(Resource.Loading)
     val meal: LiveData<Resource<MealModel>> get() = _meal
 
+    private val _ingredientList = mutableListOf<String>()
+    val ingredientList: List<String> get() = _ingredientList
+
+    private val _measureList = mutableListOf<String>()
+    val measureList: List<String> get() = _measureList
+
     init {
         getMealById()
     }
 
-    fun getMealById() = viewModelScope.launch{
-        if(idMeal!=0){
+    fun getMealById() = viewModelScope.launch {
+        if (idMeal != 0) {
             _meal.value = Resource.Loading
             _meal.value = findMealByIdUseCase(idMeal)!!
         }
     }
+
+    fun removeNullIngredients(item: List<String?>) {
+        item.forEach { ingredient ->
+            if (ingredient.isNullOrEmpty()) {
+                return
+            }
+            _ingredientList.add(ingredient)
+        }
+    }
+
+    fun removeNullMeasures(item: List<String?>) {
+        item.forEach { measure ->
+            if (measure.isNullOrEmpty()) {
+                return
+            }
+            _measureList.add(measure)
+        }
+    }
+
+
 }
