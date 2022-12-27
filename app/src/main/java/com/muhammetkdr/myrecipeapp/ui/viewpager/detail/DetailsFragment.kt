@@ -36,7 +36,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding, DetailsViewModel>(
                 when (Resource) {
                     is Resource.Success -> {
                         Resource.data.let { it ->
-                            meal = it.meals!![0] // There is only 1 meal will come in here
+                            meal = it.meals!![0] // There is only 1 meal will come in here as a response
                             detailViewGroup.visible()
                             detailsProgressBar.gone()
                         }
