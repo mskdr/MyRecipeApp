@@ -22,13 +22,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding, DetailsViewModel>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initObservers()
-        initializeListeners()
-    }
-
-    private fun initializeListeners() = with(binding) {
-        imgFavorite.setOnClickListener {
-            viewModel.setFavoriteState(meal!!)
-        }
+        binding.viewModel = viewModel
     }
 
     private fun initObservers() {
@@ -36,7 +30,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding, DetailsViewModel>(
             with(binding) {
                 when (Resource) {
                     is Resource.Success -> {
-                        Resource.data.let {
+                        Resource.data.let { it ->
                             meal = it.meals!![0] // There is only 1 meal will come in here
                             detailViewGroup.visible()
                             detailsProgressBar.gone()
