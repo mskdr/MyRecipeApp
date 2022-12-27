@@ -17,7 +17,7 @@ fun ImageView.setIngredients(ingredient: String?) {
 }
 
 @BindingAdapter("favoriteState")
-fun ImageView.favoriteState(isFavorite: LiveData<Boolean>) {
-    if (isFavorite.value == true) this.setImageResource(R.drawable.ic_favorite_selected)
+fun ImageView.favoriteState(isFavorite:LiveData<Boolean?>){
+    if (isFavorite.value == true && isFavorite.value != null) this.setImageResource(R.drawable.ic_favorite_selected)
     else this.setImageResource(R.drawable.ic_favorite_unselected)
 }

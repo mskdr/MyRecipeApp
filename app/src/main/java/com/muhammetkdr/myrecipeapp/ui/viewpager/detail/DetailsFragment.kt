@@ -22,7 +22,12 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding, DetailsViewModel>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initObservers()
-        binding.viewModel = viewModel
+        initDataBinding()
+    }
+
+    fun initDataBinding() = with(binding){
+        detailsViewModel = viewModel
+        lifecycleOwner = viewLifecycleOwner
     }
 
     private fun initObservers() {
@@ -45,17 +50,6 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding, DetailsViewModel>(
                         detailViewGroup.invisible()
                         detailsProgressBar.visible()
                     }
-                }
-            }
-        }
-
-        viewModel.isFavorite.observe(viewLifecycleOwner) {
-            when (it) {
-                true -> {
-                    binding.imgFavorite.setImageResource(R.drawable.ic_favorite_selected)
-                }
-                else -> {
-                    binding.imgFavorite.setImageResource(R.drawable.ic_favorite_unselected)
                 }
             }
         }
