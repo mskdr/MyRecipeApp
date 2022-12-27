@@ -5,7 +5,7 @@
 
     <data>
         <variable
-            name="viewModel"
+            name="detailsViewModel"
             type="com.muhammetkdr.myrecipeapp.ui.viewpager.detail.DetailsViewModel" />
 
         <variable
@@ -36,7 +36,8 @@
                     app:layout_constraintStart_toEndOf="@+id/tvDescription"
                     app:layout_constraintTop_toTopOf="@+id/tvDescription"
                     app:srcCompat="@drawable/ic_favorite_unselected"
-                    android:onClick="@{()-> viewModel.setFavoriteState(meal)}"
+                    favoriteState="@{detailsViewModel.isFavorite()}"
+                    android:onClick="@{()-> detailsViewModel.setFavoriteState(meal)}"
                     />
 
                 <ImageView
