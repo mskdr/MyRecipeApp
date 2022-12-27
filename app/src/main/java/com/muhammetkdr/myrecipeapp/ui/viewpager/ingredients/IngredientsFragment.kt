@@ -82,8 +82,7 @@ class IngredientsFragment : BaseFragment<FragmentIngredientsBinding, Ingredients
                                 it.meals[0]?.strMeasure20
                             )
 
-                            viewModel.removeNullIngredients(ingredients)
-                            viewModel.removeNullMeasures(measures)
+                            viewModel.removeNullOrEmpty(ingredients,measures)
 
                             ingredientsListAdapter.differForIngredients.submitList(viewModel.ingredientList)
                             ingredientsListAdapter.differForMeasures.submitList(viewModel.measureList)

@@ -37,23 +37,20 @@ class IngredientsViewModel @Inject constructor(
         }
     }
 
-    fun removeNullIngredients(item: List<String?>) {
-        item.forEach { ingredient ->
+    fun removeNullOrEmpty(itemIngredients: List<String?>?, itemMeasures: List<String?>?) {
+        itemIngredients?.forEach { ingredient ->
             if (ingredient.isNullOrEmpty()) {
-                return
+                return@forEach
             }
             _ingredientList.add(ingredient)
         }
-    }
 
-    fun removeNullMeasures(item: List<String?>) {
-        item.forEach { measure ->
+        itemMeasures?.forEach { measure ->
             if (measure.isNullOrEmpty()) {
-                return
+                return@forEach
             }
             _measureList.add(measure)
         }
     }
-
 
 }
