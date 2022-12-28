@@ -21,11 +21,6 @@ class MealsFragment : BaseFragment<FragmentMealsBinding, MealsViewModel>(
     override val viewModel by viewModels<MealsViewModel>()
     private val adapter: MealsAdapter by lazy { MealsAdapter(::navigateDetailPage) }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupRV()

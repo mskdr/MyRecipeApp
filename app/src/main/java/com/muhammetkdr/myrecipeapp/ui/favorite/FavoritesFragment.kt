@@ -58,7 +58,6 @@ class FavoritesFragment: BaseFragment<FragmentFavoritesBinding, FavoritesViewMod
     private fun setupRv() = with(binding){
         rvFavorites.adapter = favoritesAdapter
         rvFavorites.layoutManager =
-//            StaggeredGridLayoutManager(2,RecyclerView.HORIZONTAL)
             GridLayoutManager(requireContext(), 2)
     }
 

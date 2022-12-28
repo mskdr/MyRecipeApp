@@ -57,7 +57,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
     private fun setupRV() = with(binding) {
         rvCategoryHome.adapter = adapter
         rvCategoryHome.layoutManager =
-            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
     }
 
     private fun navigateMealsPage(item: Category) {
