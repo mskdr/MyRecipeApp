@@ -34,6 +34,9 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
             />
+        <action
+            android:id="@+id/action_homeFragment_to_detailsViewPagerFragment"
+            app:destination="@id/detailsViewPagerFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"

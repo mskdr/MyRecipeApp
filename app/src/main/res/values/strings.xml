@@ -28,5 +28,9 @@
     <string name="toast_cancelled">Cancelled</string>
     <string name="toast_accepted">Deleted</string>
     <string name="toast_declined">Declined</string>
+    <string name="home_fab">Home Fab button</string>
+    <string name="home_dialog_accept">Accepted</string>
+    <string name="home_dialog_declined">Declined</string>
+    <string name="home_dialog_body">Do you want to get a random recipe?</string>
 
 </resources>

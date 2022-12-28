@@ -45,10 +45,10 @@ class IngredientsListAdapter @Inject constructor() : RecyclerView.Adapter<Ingred
 
     private val diffUtilForIngredients = object : DiffUtil.ItemCallback<String>() {
         override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
-            return oldItem == newItem //true
+            return oldItem == newItem
         }
         override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
-            return oldItem == newItem //false
+            return oldItem == newItem
         }
     }
 
@@ -56,10 +56,10 @@ class IngredientsListAdapter @Inject constructor() : RecyclerView.Adapter<Ingred
 
     private val diffUtilForMeasures = object : DiffUtil.ItemCallback<String>() {
         override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
-            return oldItem == newItem //true
+            return oldItem == newItem
         }
         override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
-            return oldItem == newItem //false
+            return oldItem == newItem
         }
     }
 
@@ -75,7 +75,7 @@ class IngredientsListAdapter @Inject constructor() : RecyclerView.Adapter<Ingred
 
     var onItemClickListener: ((String) -> Unit)? = null
 
-//    fun setOnItemClickListener(listener: (String) -> Unit) {
+//    fun setOnRvItemClickListener(listener: (String) -> Unit) {
 //        onItemClickListener = listener
 //    }
 }
