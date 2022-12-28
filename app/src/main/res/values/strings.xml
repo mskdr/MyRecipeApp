@@ -19,6 +19,14 @@
     <string name="rv_Meal_image">Rv Meal View</string>
     <string name="rv_Ingredients_image">Rv Ingredients View</string>
     <string name="Deleted_favorite">Delete from favorites list successfully</string>
-
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_accept">Accept</string>
+    <string name="dialog_decline">Decline</string>
+    <string name="dialog_title">Warning</string>
+    <string name="dialog_body">You are about to delete this item from your favorite list, are you sure?</string>
+    <string name="toast_added">Added</string>
+    <string name="toast_cancelled">Cancelled</string>
+    <string name="toast_accepted">Deleted</string>
+    <string name="toast_declined">Declined</string>
 
 </resources>
