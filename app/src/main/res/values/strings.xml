@@ -32,5 +32,8 @@
     <string name="home_dialog_accept">Accepted</string>
     <string name="home_dialog_declined">Declined</string>
     <string name="home_dialog_body">Do you want to get a random recipe?</string>
+    <string name="bottom_nav_item_home">Home</string>
+    <string name="bottom_nav_item_search">Search</string>
+    <string name="bottom_nav_item_favorite">Favorites</string>
 
 </resources>
