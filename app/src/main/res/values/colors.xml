@@ -9,4 +9,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#838383</color>
+    <color name="animation_background_color">#AEE5FE</color>
+
 </resources>
