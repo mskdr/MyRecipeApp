@@ -1,7 +1,6 @@
 package com.muhammetkdr.myrecipeapp.di
 
 import com.muhammetkdr.myrecipeapp.BuildConfig
-import com.muhammetkdr.myrecipeapp.common.utils.Const.Companion.BASE_URL
 import com.muhammetkdr.myrecipeapp.data.remote.RecipeAPIService
 import dagger.Module
 import dagger.Provides
@@ -49,7 +48,7 @@ object NetworkModule {
         okHttpClient: OkHttpClient,
         gsonConverterFactory: GsonConverterFactory
     ): Retrofit {
-        return Retrofit.Builder().baseUrl(BASE_URL).client(okHttpClient)
+        return Retrofit.Builder().baseUrl(BuildConfig.BASE_URL).client(okHttpClient)
             .addConverterFactory(gsonConverterFactory).build()
     }
 
