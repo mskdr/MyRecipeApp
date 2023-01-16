@@ -31,4 +31,7 @@ object Versions {
 
     const val encryptedSharedPref = "1.1.0-alpha04"
 
+    const val lottieVersion = "5.2.0"
+
+
 }

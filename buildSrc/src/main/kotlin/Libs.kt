@@ -59,4 +59,9 @@ object Libs {
         const val glide = "com.github.bumptech.glide:glide:" + Versions.glideVersion
         const val glideCompailer = "com.github.bumptech.glide:compiler:" + Versions.glideVersion
     }
+    object LottieAnimations{
+        const val lottieLib = "com.airbnb.android:lottie:"+Versions.lottieVersion
+    }
+
+
 }
