@@ -6,6 +6,7 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.muhammetkdr.myrecipeapp.R
 import com.muhammetkdr.myrecipeapp.base.BaseFragment
 import com.muhammetkdr.myrecipeapp.common.extensions.gone
 import com.muhammetkdr.myrecipeapp.common.extensions.showSnackbar
@@ -45,7 +46,8 @@ class FavoritesFragment: BaseFragment<FragmentFavoritesBinding, FavoritesViewMod
                     }
                     is Resource.Error -> {
                         favoritesProgressBar.gone()
-                        requireView().showSnackbar(Resource.throwable.message.toString())
+                        requireView().showSnackbar(
+                            Resource.throwable.localizedMessage ?: resources.getString(R.string.someting_bad_happened))
                     }
                     is Resource.Loading -> {
                         favoritesProgressBar.visible()

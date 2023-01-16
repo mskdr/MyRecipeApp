@@ -23,7 +23,6 @@ class DetailsViewPagerFragment : BaseFragment<FragmentDetailViewPagerBinding, De
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setupUI()
 
     }

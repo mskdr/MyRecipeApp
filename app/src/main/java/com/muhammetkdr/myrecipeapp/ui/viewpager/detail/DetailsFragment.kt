@@ -27,7 +27,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding, DetailsViewModel>(
         initDataBinding()
     }
 
-    fun initDataBinding() = with(binding) {
+    private fun initDataBinding() = with(binding) {
         detailsViewModel = viewModel
         lifecycleOwner = viewLifecycleOwner
     }
@@ -48,7 +48,8 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding, DetailsViewModel>(
                     is Resource.Error -> {
                         detailViewGroup.invisible()
                         detailsProgressBar.gone()
-                        requireView().showSnackbar(Resource.throwable.message.toString())
+                        requireView().showSnackbar(
+                            Resource.throwable.localizedMessage ?: resources.getString(R.string.someting_bad_happened))
                     }
                     is Resource.Loading -> {
                         detailViewGroup.invisible()
@@ -63,13 +64,13 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding, DetailsViewModel>(
         }
     }
 
-    fun initImgFavOnClick(isFavorite: Boolean) = with(binding) {
+    private fun initImgFavOnClick(isFavorite: Boolean) = with(binding) {
         imgFavorite.setOnClickListener {
             if (isFavorite) {
                 MaterialAlertDialogBuilder(requireContext())
                     .setTitle(resources.getString(R.string.dialog_title))
                     .setMessage(resources.getString(R.string.dialog_body))
-                    .setPositiveButton(resources.getString(R.string.dialog_accept)) { dialog, which ->
+                    .setPositiveButton(resources.getString(R.string.dialog_accept)) { _, _ ->
                         Toast.makeText(
                             requireContext(), R.string.toast_accepted, Toast.LENGTH_SHORT
                         ).show()
@@ -78,7 +79,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding, DetailsViewModel>(
                             viewModel.setFavoriteState(meal)
                         }
                     }
-                    .setNegativeButton(resources.getString(R.string.dialog_decline)) { dialog, which ->
+                    .setNegativeButton(resources.getString(R.string.dialog_decline)) { _, _ ->
                         Toast.makeText(requireContext(), R.string.toast_declined, Toast.LENGTH_SHORT
                         ).show()
                     }.show()
