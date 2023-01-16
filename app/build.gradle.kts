@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
+
 plugins {
     id ("com.android.application")
     id ("org.jetbrains.kotlin.android")
@@ -22,6 +24,15 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        val baseUrl = gradleLocalProperties(rootDir).getProperty("BASE_URL")
+        buildConfigField("String", "BASE_URL", baseUrl)
+
+        val apiKey = gradleLocalProperties(rootDir).getProperty("API_KEY")
+        buildConfigField("String", "API_KEY", apiKey)
+
+        val imageBaseUrl = gradleLocalProperties(rootDir).getProperty("IMAGE_URL")
+        buildConfigField("String", "IMAGE_URL", imageBaseUrl)
     }
 
     buildTypes {
@@ -52,6 +63,9 @@ dependencies {
     implementation (Libs.AndroidX.appCompat)
     implementation (Libs.Google.material)
     implementation (Libs.AndroidX.constraintLayout)
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
 
     //test
     testImplementation (Libs.TestLibs.junit)
@@ -94,4 +108,7 @@ dependencies {
 
     //Encrypted SharedPref
     implementation (Libs.AndroidX.encryptedSharedPref)
+
+    // Lottie anim.
+    implementation (Libs.LottieAnimations.lottieLib)
 }
