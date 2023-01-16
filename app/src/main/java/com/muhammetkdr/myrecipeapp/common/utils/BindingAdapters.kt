@@ -4,16 +4,23 @@ import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import com.bumptech.glide.Glide
+import com.muhammetkdr.myrecipeapp.BuildConfig
 import com.muhammetkdr.myrecipeapp.R
 
 @BindingAdapter("setImage")
 fun ImageView.setImage(imageUrl: String?) {
-    Glide.with(this).load(imageUrl).into(this)
+    Glide.with(this).load(imageUrl)
+        .placeholder(R.drawable.ic_downloading)
+        .error(R.drawable.ic_error)
+        .into(this)
 }
 
 @BindingAdapter("setIngredients")
 fun ImageView.setIngredients(ingredient: String?) {
-    Glide.with(this).load("https://www.themealdb.com/images/ingredients/${ingredient}-Small.png").into(this)
+    Glide.with(this).load("${BuildConfig.IMAGE_URL}${ingredient}-Small.png")
+        .placeholder(R.drawable.ic_downloading)
+        .error(R.drawable.ic_error)
+        .into(this)
 }
 
 @BindingAdapter("favoriteState")
