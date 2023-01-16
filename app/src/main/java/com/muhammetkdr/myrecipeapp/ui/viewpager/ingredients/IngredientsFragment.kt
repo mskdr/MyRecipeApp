@@ -1,10 +1,10 @@
 package com.muhammetkdr.myrecipeapp.ui.viewpager.ingredients
 
-
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.muhammetkdr.myrecipeapp.R
 import com.muhammetkdr.myrecipeapp.base.BaseFragment
 import com.muhammetkdr.myrecipeapp.common.extensions.gone
 import com.muhammetkdr.myrecipeapp.common.extensions.showSnackbar
@@ -35,8 +35,10 @@ class IngredientsFragment : BaseFragment<FragmentIngredientsBinding, Ingredients
                 when (Resource) {
                     is Resource.Success -> {
                         Resource.data.let {
+
                             //There wasn't an api request that i can get ingredients and measures as a list
                             // therefore i had to do it like this
+
                             val ingredients = listOf(
                                 it.meals!![0]?.strIngredient1,
                                 it.meals[0]?.strIngredient2,
@@ -92,7 +94,8 @@ class IngredientsFragment : BaseFragment<FragmentIngredientsBinding, Ingredients
                     }
                     is Resource.Error -> {
                         ingredientsProgressbar.gone()
-                        requireView().showSnackbar(Resource.throwable.message.toString())
+                        requireView().showSnackbar(
+                            Resource.throwable.localizedMessage ?: resources.getString(R.string.someting_bad_happened))
                     }
                     is Resource.Loading -> {
                         ingredientsProgressbar.visible()
