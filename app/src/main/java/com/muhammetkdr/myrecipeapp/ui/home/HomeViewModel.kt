@@ -37,7 +37,7 @@ class HomeViewModel @Inject constructor(
             _categoryList.value = getCategoriesUseCase()!!
         }
 
-    fun provideRandomMeal() = viewModelScope.launch {
+    fun getMealRandomly() = viewModelScope.launch {
         _randomMeal.value = Resource.Loading
         _randomMeal.value = getRandomMeal()!!
     }

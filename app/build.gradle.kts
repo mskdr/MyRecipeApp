@@ -11,7 +11,7 @@ plugins {
 
 android {
     namespace = Config.applicationId
-    compileSdk = Config.compileSdk
+    compileSdk = 33
 
     defaultConfig {
         applicationId = Config.applicationId
@@ -45,8 +45,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
@@ -63,9 +63,9 @@ dependencies {
     implementation (Libs.AndroidX.appCompat)
     implementation (Libs.Google.material)
     implementation (Libs.AndroidX.constraintLayout)
-    implementation("androidx.legacy:legacy-support-v4:1.0.0")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
+    implementation(Libs.AndroidX.legacySupportLib)
+    implementation (Libs.AndroidX.liveData)
+    implementation (Libs.AndroidX.vmLifeCycle)
 
     //test
     testImplementation (Libs.TestLibs.junit)
@@ -82,9 +82,7 @@ dependencies {
     implementation (Libs.Coroutines.coroutineAndroid)
 
     // Lifecycle Scopes
-    implementation (Libs.AndroidX.vmLifeCycle)
     implementation (Libs.AndroidX.liveCycleRuntime)
-    implementation (Libs.AndroidX.liveData)
     implementation (Libs.AndroidX.lifeCycleExtension)
 
     // Retrofit

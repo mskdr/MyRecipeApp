@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.muhammetkdr.myrecipeapp.R
 import com.muhammetkdr.myrecipeapp.base.BaseFragment
 import com.muhammetkdr.myrecipeapp.common.extensions.gone
 import com.muhammetkdr.myrecipeapp.common.extensions.showSnackbar
@@ -33,13 +34,14 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>(
         setupRV()
         searchMeal()
         initObservers()
+
     }
 
     private fun searchMeal() {
         var job: Job? = null
         binding.searchMealTextField.editText?.addTextChangedListener {
             job?.cancel()
-            job = lifecycleScope.launch{
+            job = lifecycleScope.launch {
                 delay(1000)
                 it?.let {
                     if (it.toString().isNotEmpty()) {
@@ -50,7 +52,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>(
         }
     }
 
-    private fun initObservers(){
+    private fun initObservers() {
         viewModel.searchedMealList.observe(viewLifecycleOwner) { Resource ->
             with(binding) {
                 when (Resource) {
@@ -63,7 +65,9 @@ class SearchFragment : BaseFragment<FragmentSearchBinding, SearchViewModel>(
                     }
                     is Resource.Error -> {
                         searchProgressBar.gone()
-                        requireView().showSnackbar(Resource.throwable.message.toString())
+                        requireView().showSnackbar(
+                            Resource.throwable.localizedMessage ?: resources.getString(R.string.someting_bad_happened)
+                        )
                     }
                     is Resource.Loading -> {
                         searchProgressBar.visible()

@@ -8,15 +8,15 @@ import javax.inject.Inject
 class RemoteDataSourceImpl @Inject constructor(private val recipeAPIService: RecipeAPIService): RemoteDataSource {
 
     override suspend fun searchMealWithName(searchWithName: String): MealModel {
-       return recipeAPIService.searchMealWithName(searchWithName)
+       return recipeAPIService.searchMealWithName(searchWithName = searchWithName)
     }
 
     override suspend fun searchMealWithFirstLetter(searchWithFirstLetter: String): MealModel {
-        return recipeAPIService.searchMealWithFirstLetter(searchWithFirstLetter)
+        return recipeAPIService.searchMealWithFirstLetter(searchWithFirstLetter = searchWithFirstLetter)
     }
 
     override suspend fun findMealById(searchMealId: Int): MealModel {
-        return recipeAPIService.findMealById(searchMealId)
+        return recipeAPIService.findMealById(searchMealId = searchMealId)
     }
 
     override suspend fun randomMeal(): MealModel {
@@ -40,14 +40,14 @@ class RemoteDataSourceImpl @Inject constructor(private val recipeAPIService: Rec
     }
 
     override suspend fun filterByItemName(itemName: String): MealModel {
-        return recipeAPIService.filterByItemName(itemName)
+        return recipeAPIService.filterByItemName(itemName = itemName)
     }
 
     override suspend fun filterByCategory(categoryName: String): MealModel {
-        return recipeAPIService.filterByCategory(categoryName)
+        return recipeAPIService.filterByCategory(categoryName = categoryName)
     }
 
     override suspend fun filterByNation(nationName: String): MealModel {
-        return recipeAPIService.filterByNation(nationName)
+        return recipeAPIService.filterByNation(nationName = nationName)
     }
 }

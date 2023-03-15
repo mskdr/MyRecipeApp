@@ -18,6 +18,7 @@ import com.muhammetkdr.myrecipeapp.model.category.Category
 import com.muhammetkdr.myrecipeapp.model.meal.Meal
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
     FragmentHomeBinding::inflate
@@ -33,7 +34,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
 
     override fun onResume() {
         super.onResume()
-        viewModel.provideRandomMeal()
+        viewModel.getMealRandomly()
     }
 
     private fun initObservers() {
@@ -51,7 +52,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
                     is Resource.Error -> {
                         homeViewGroup.gone()
                         homeProgressbar.gone()
-                        requireView().showSnackbar(Resource.throwable.message.toString())
+                        requireView().showSnackbar(
+                            Resource.throwable.localizedMessage ?: resources.getString(R.string.someting_bad_happened))
                     }
                     is Resource.Loading -> {
                         homeViewGroup.gone()
@@ -65,10 +67,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
             with(binding) {
                 when (Resource) {
                     is Resource.Success -> {
-                        Resource.data.let { mealModel->
+                        Resource.data.let { mealModel ->
 
-                            mealModel.meals?.let { mealList->
-                                val randomMeal = mealList[0] // There is only 1 meal will come in here as a response
+                            mealModel.meals?.let { mealList ->
+                                val randomMeal =
+                                    mealList[0] // There is only 1 meal will come in here as a response
 
                                 fabHome.setOnClickListener {
                                     randomMeal?.let {

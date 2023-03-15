@@ -1,5 +1,5 @@
 object Versions {
-    const val gradleVersion = "7.1.1"
+    const val gradleVersion = "7.4.0"
     const val googleServicesVersion = "4.3.14"
     const val navSafeArgPlugVersion = "2.6.0-alpha04"
 
@@ -19,6 +19,8 @@ object Versions {
     const val lifecycleVersion = "2.5.1"
     const val lifecycleExtensionsVersion = "2.2.0"
 
+    const val legacySupportLibVersion = "1.0.0"
+
     const val retrofitVersion = "2.9.0"
     const val okHttpVersion = "5.0.0-alpha.2"
 
@@ -32,6 +34,5 @@ object Versions {
     const val encryptedSharedPref = "1.1.0-alpha04"
 
     const val lottieVersion = "5.2.0"
-
 
 }

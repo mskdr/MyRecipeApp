@@ -6,9 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.muhammetkdr.myrecipeapp.base.BaseListAdapter
 import com.muhammetkdr.myrecipeapp.databinding.ItemRowMealsBinding
 import com.muhammetkdr.myrecipeapp.model.meal.Meal
+import javax.inject.Inject
 
 
-class MealsAdapter (private val onMealsItemClickListener: ((Meal) -> Unit)?) :
+class MealsAdapter @Inject constructor(private val onMealsItemClickListener: ((Meal) -> Unit)?) :
     BaseListAdapter<Meal>(
         itemsSame = { old, new -> old.idMeal == new.idMeal },
         contentsSame = { old, new -> old == new }) {

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.muhammetkdr.myrecipeapp.R
 import com.muhammetkdr.myrecipeapp.common.extensions.gone
@@ -28,6 +29,16 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.navHostFragmentContainer) as NavHostFragment
         val navController = navHostFragment.navController
         binding.bottomNavigationView.setupWithNavController(navController)
+
+        // adjustment for meals fragment
+        binding.bottomNavigationView.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.homeFragment -> navHostFragment.findNavController().navigate(R.id.homeFragment)
+                R.id.searchFragment -> navHostFragment.findNavController().navigate(R.id.searchFragment)
+                R.id.favoritesFragment-> navHostFragment.findNavController().navigate(R.id.favoritesFragment)
+            }
+            true
+        }
 
         navHostFragment.navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
