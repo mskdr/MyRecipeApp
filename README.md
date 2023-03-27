@@ -2,6 +2,18 @@
 
 [TheMealDB](https://www.themealdb.com/) API servisi kullanarak geliştirdiğim bu yemek tarifleri uygulamamda, favori tarifinizi kayıt edebilir, istediğiniz bir yemeği veya türünü arayarak bulabilir, kategorilere göre sınıflandırabilirsiniz.
 
+## Uygulama içerisinden bazı görseller
+
+<img src="https://user-images.githubusercontent.com/71526845/228056380-74be1d38-b2a1-4b20-82dd-bbaa975da4ca.jpeg" width="160">,
+<img src="https://user-images.githubusercontent.com/71526845/228056490-87241147-554b-43a9-9aca-5ea48f26df77.jpeg" width="160">,
+<img src="https://user-images.githubusercontent.com/71526845/228056497-16a14f4c-d09b-4b4a-bdf7-4cae56dbbfdd.jpeg" width="160">,
+<img src="https://user-images.githubusercontent.com/71526845/228056501-0a31a334-51c5-4aff-ab4b-b518f3736c37.jpeg" width="160">,
+<img src="https://user-images.githubusercontent.com/71526845/228056505-856c66ad-89d2-498f-816e-a7f60cffd5dd.jpeg" width="160">,
+<img src="https://user-images.githubusercontent.com/71526845/228056510-a1b80d41-41a0-425f-a27a-96559f5a5976.jpeg" width="160">,
+<img src="https://user-images.githubusercontent.com/71526845/228056512-92185443-88fa-4e12-8166-7a829fba66ee.jpeg" width="160">,
+<img src="https://user-images.githubusercontent.com/71526845/228056514-3fa4ce49-14d5-4ca7-891d-d992eb33d738.jpeg" width="160">,
+<img src="https://user-images.githubusercontent.com/71526845/228056517-9fb8f4b7-6833-4089-88d4-b774db05c3d0.jpeg" width="160">
+
 ## Uygulamada İçerisinde Kullandığım Bazı Kütüphane ve Yapılar 🛠
 
 <li><a href="https://developer.android.com/topic/libraries/architecture/navigation/">Navigation</a></li>
@@ -24,8 +36,6 @@ MVVM(Model-View-ViewModel) mimari yapısı kullanılarak yazılmıştır.
 
 ![final-architecture](https://user-images.githubusercontent.com/71526845/206714560-fd57fe48-7d35-4434-9beb-ffd6ca396cfb.png)
 
-## Uygulama içerisinden bazı görseller
 
-<img src="https://user-images.githubusercontent.com/71526845/206716348-86832158-d8a7-42ee-a9f6-9dc9b1dd1977.jpeg" width="250">,<img src="https://user-images.githubusercontent.com/71526845/206716439-98a07657-0ae1-41a6-9f89-e8359faa9f3e.jpeg" width="250">,<img src="https://user-images.githubusercontent.com/71526845/206719857-6b71e149-e775-4903-8b03-c9919e3d8a80.jpg" width="250">,<img src="https://user-images.githubusercontent.com/71526845/206716483-f2d0cb07-a376-424c-8486-0a3589d8f4e9.jpeg" width="250">,<img src="https://user-images.githubusercontent.com/71526845/206716518-4e47c256-046f-4e47-b64d-70518144ed27.jpeg" width="250">,<img src="https://user-images.githubusercontent.com/71526845/206716582-9ddcba68-466b-4601-bc83-c31a6637f1b3.jpeg" width="250">,<img src="https://user-images.githubusercontent.com/71526845/206718969-a4398284-ccdc-488e-8eea-40e369b1f3ef.jpg" width="250">
 
 
