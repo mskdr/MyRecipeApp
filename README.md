@@ -36,6 +36,11 @@ MVVM(Model-View-ViewModel) mimari yapısı kullanılarak yazılmıştır.
 
 ![final-architecture](https://user-images.githubusercontent.com/71526845/206714560-fd57fe48-7d35-4434-9beb-ffd6ca396cfb.png)
 
+## Bana ulaşmak için
+<p align="left">
+<a href="https://www.linkedin.com/in/muhammet-k%C3%BCd%C3%BCr/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="muhammetküdür" height="30" width="40" /></a>
+</p>
+
 
 
 
