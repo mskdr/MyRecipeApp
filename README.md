@@ -1,6 +1,6 @@
 # MyRecipeApp
 
-[TheMealDB](https://www.themealdb.com/) API servisi kullanarak geliştirdiğim ve geliştirmeye devam ettiğim bu yemek tarifleri uygulamamda, favori tarifinizi kayıt edebilir, istediğiniz bir yemeği veya türünü arayarak bulabilir, kategorilere göre sınıflandırabilirsiniz.
+[TheMealDB](https://www.themealdb.com/) API servisi kullanarak geliştirdiğim bu yemek tarifleri uygulamamda, favori tarifinizi kayıt edebilir, istediğiniz bir yemeği veya türünü arayarak bulabilir, kategorilere göre sınıflandırabilirsiniz.
 
 ## Uygulamada İçerisinde Kullandığım Bazı Kütüphane ve Yapılar 🛠
 
