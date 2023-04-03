@@ -1,8 +1,12 @@
-# MyRecipeApp
+<h1 align="center">MyRecipeApp</h1></br>
 
-[TheMealDB](https://www.themealdb.com/) API servisi kullanarak geliştirdiğim bu yemek tarifleri uygulamamda, favori tarifinizi kayıt edebilir, istediğiniz bir yemeği veya türünü arayarak bulabilir, kategorilere göre sınıflandırabilirsiniz.
+In this recipe application, which I developed using [TheMealDB](https://www.themealdb.com/) API service, you can save your favorite recipe, find a dish or type of food you want, and classify it according to categories.
+</p>
+<p align="center">
+  <a href="https://android-arsenal.com/api?level=21"><img alt="API" src="https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat"/></a>
+</p>
 
-## Uygulama içerisinden bazı görseller
+## Screenshots
 
 <img src="https://user-images.githubusercontent.com/71526845/228056380-74be1d38-b2a1-4b20-82dd-bbaa975da4ca.jpeg" width="160">,
 <img src="https://user-images.githubusercontent.com/71526845/228056490-87241147-554b-43a9-9aca-5ea48f26df77.jpeg" width="160">,
@@ -14,7 +18,7 @@
 <img src="https://user-images.githubusercontent.com/71526845/228056514-3fa4ce49-14d5-4ca7-891d-d992eb33d738.jpeg" width="160">,
 <img src="https://user-images.githubusercontent.com/71526845/228056517-9fb8f4b7-6833-4089-88d4-b774db05c3d0.jpeg" width="160">
 
-## Uygulamada İçerisinde Kullandığım Bazı Kütüphane ve Yapılar 🛠
+## Some of the technologies and libraries which i used in the app 🛠
 
 <li><a href="https://developer.android.com/topic/libraries/architecture/navigation/">Navigation</a></li>
 <li><a href="https://developer.android.com/topic/libraries/architecture/viewmodel">ViewModel</a></li>
@@ -32,11 +36,11 @@
 <li><a href="https://developer.android.com/reference/com/google/android/material/tabs/TabLayout">TabLayout</a></li>
 
 ## Architecture
-MVVM(Model-View-ViewModel) mimari yapısı kullanılarak yazılmıştır.
+This app uses MVVM (Model-View-ViewModel) architecture
 
 ![final-architecture](https://user-images.githubusercontent.com/71526845/206714560-fd57fe48-7d35-4434-9beb-ffd6ca396cfb.png)
 
-## Bana ulaşmak için
+## Contact With Me  
 <p align="left">
 <a href="https://www.linkedin.com/in/muhammet-k%C3%BCd%C3%BCr/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="muhammetküdür" height="30" width="40" /></a>
 </p>
